@@ -7,24 +7,24 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="World Tracker">
 <title>World Tracker</title>
- 
+
 <!-- PWA Home Screen Icon (SVG as data URI embedded in link tag) -->
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
- 
+
 <!-- Manifest for Android PWA -->
 <link rel="manifest" href="manifest.json">
- 
+
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
- --blue:#1a56db;--blue-light:#e8f0fe;--gray:#6b7280;--gray-light:#f3f4f6;
- --border:#e5e7eb;--text:#0f172a;--white:#ffffff;
- --shadow:0 2px 16px rgba(26,86,219,.10);--radius:18px;
+--blue:#1a56db;--blue-light:#e8f0fe;--gray:#6b7280;--gray-light:#f3f4f6;
+--border:#e5e7eb;--text:#0f172a;--white:#ffffff;
+--shadow:0 2px 16px rgba(26,86,219,.10);--radius:18px;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{height:100%}
 body{font-family:'DM Sans',sans-serif;background:#e8edf8;min-height:100%;display:flex;justify-content:center;align-items:flex-start;padding:20px 0 40px}
- 
+
 /* SPLASH */
 #splash{position:fixed;inset:0;z-index:999;background:var(--blue);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;animation:splashFade .5s ease 2.2s forwards}
 #splash.gone{display:none}
@@ -34,23 +34,23 @@ body{font-family:'DM Sans',sans-serif;background:#e8edf8;min-height:100%;display
 .splash-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#fff;animation:fadeUp .6s ease .5s both}
 .splash-sub{font-size:14px;color:rgba(255,255,255,.7);animation:fadeUp .6s ease .7s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
- 
+
 /* PHONE */
 .phone{width:390px;background:#f4f7ff;border-radius:44px;box-shadow:0 32px 80px rgba(26,86,219,.18),0 0 0 1px rgba(26,86,219,.1);overflow:hidden;height:860px;display:flex;flex-direction:column;animation:appReveal .6s ease 2.6s both}
 @keyframes appReveal{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
- 
+
 .status-bar{background:var(--white);padding:14px 24px 6px;display:flex;justify-content:flex-end;align-items:center;font-size:15px;font-weight:700;color:var(--text);flex-shrink:0;gap:4px}
 .app-header{background:var(--white);padding:10px 20px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;flex-shrink:0}
 .header-icon{width:40px;height:40px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .header-icon svg{width:24px;height:24px}
 .app-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--text);line-height:1}
 .app-subtitle{font-size:12px;color:var(--blue);margin-top:2px}
- 
+
 .screen{flex:1;min-height:0;overflow-y:auto;scrollbar-width:none}
 .screen::-webkit-scrollbar{display:none}
 .tab-content{display:none}
 .tab-content.active{display:block}
- 
+
 /* DASHBOARD */
 .dashboard-body{padding:18px 14px;display:flex;flex-direction:column;gap:13px}
 .main-card{background:linear-gradient(135deg,var(--blue) 0%,#2563eb 60%,#3b82f6 100%);border-radius:var(--radius);padding:22px;box-shadow:0 8px 32px rgba(26,86,219,.3);color:#fff;text-align:center;position:relative;overflow:hidden}
@@ -67,7 +67,7 @@ body{font-family:'DM Sans',sans-serif;background:#e8edf8;min-height:100%;display
 .stat-icon{font-size:20px;margin-bottom:4px}
 .stat-value{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--text)}
 .stat-label{font-size:11px;color:var(--gray);margin-top:2px}
- 
+
 /* RANK BADGE */
 .rank-card{background:var(--white);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;gap:5px}
 .rank-badge-wrap{position:relative;width:54px;height:54px;display:flex;align-items:center;justify-content:center}
@@ -77,7 +77,7 @@ body{font-family:'DM Sans',sans-serif;background:#e8edf8;min-height:100%;display
 .rank-sub{font-size:10px;color:var(--gray);text-align:center}
 .rank-progress-wrap{width:100%;background:var(--gray-light);border-radius:6px;height:5px;overflow:hidden;margin-top:2px}
 .rank-progress-bar{height:100%;border-radius:6px;transition:width .6s ease}
- 
+
 .section-label{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);text-transform:uppercase;padding:0 4px}
 .recently-card{background:var(--white);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);text-align:center}
 .empty-icon{font-size:36px;margin-bottom:10px}
@@ -85,7 +85,7 @@ body{font-family:'DM Sans',sans-serif;background:#e8edf8;min-height:100%;display
 .empty-sub{font-size:12px;color:var(--gray)}
 .visited-pill{display:inline-flex;align-items:center;gap:5px;background:var(--blue-light);color:var(--blue);border-radius:20px;padding:4px 10px 4px 7px;font-size:12px;font-weight:500;margin:3px 3px 0 0}
 .recently-list{display:flex;flex-wrap:wrap}
- 
+
 /* COUNTRIES */
 .countries-body{padding:14px}
 .search-bar{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:11px 16px;width:100%;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;margin-bottom:13px;transition:border-color .2s}
@@ -99,7 +99,7 @@ body{font-family:'DM Sans',sans-serif;background:#e8edf8;min-height:100%;display
 .country-name{flex:1;font-size:14px;font-weight:500;color:var(--text)}
 .country-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;font-size:11px;color:#fff}
 .country-item.visited .country-check{background:var(--blue);border-color:var(--blue)}
- 
+
 /* DISCOVER */
 .discover-body{padding:14px;display:flex;flex-direction:column;gap:13px;padding-bottom:24px}
 .prefs-card{background:var(--white);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
@@ -134,7 +134,7 @@ body{font-family:'DM Sans',sans-serif;background:#e8edf8;min-height:100%;display
 .no-recs{background:var(--white);border-radius:var(--radius);padding:28px 20px;text-align:center;box-shadow:var(--shadow)}
 .no-recs-icon{font-size:32px;margin-bottom:10px}
 .no-recs-text{font-size:14px;color:var(--gray)}
- 
+
 /* SETTINGS */
 .settings-body{padding:14px;display:flex;flex-direction:column;gap:13px;padding-bottom:24px}
 .settings-card{background:var(--white);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
@@ -144,7 +144,7 @@ body{font-family:'DM Sans',sans-serif;background:#e8edf8;min-height:100%;display
 .settings-row-label{font-size:14px;color:var(--text);font-weight:500}
 .settings-row-val{font-size:13px;color:var(--blue);font-weight:600}
 .reset-btn{background:#fee2e2;color:#dc2626;border-radius:11px;padding:11px 16px;font-size:14px;font-weight:600;text-align:center;cursor:pointer}
- 
+
 /* NAV */
 .bottom-nav{background:var(--white);border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;padding:10px 0 16px;flex-shrink:0}
 .nav-btn{display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;padding:5px;font-family:'DM Sans',sans-serif;color:var(--gray);font-size:10px;font-weight:500;transition:color .18s}
@@ -153,661 +153,678 @@ body{font-family:'DM Sans',sans-serif;background:#e8edf8;min-height:100%;display
 </style>
 </head>
 <body>
- 
+
 <!-- SPLASH -->
 <div id="splash">
- <div class="splash-plane">
- <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
- <path d="M72 38L12 14L22 38L12 62L72 38Z" fill="white" stroke="white" stroke-width="1" stroke-linejoin="round"/>
- <path d="M22 38H46" stroke="#1a56db" stroke-width="2.5" stroke-linecap="round"/>
- </svg>
- </div>
- <div>
- <div class="splash-title">World Tracker</div>
- <div class="splash-sub">Your personal travel journal</div>
- </div>
+<div class="splash-plane">
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+<path d="M72 38L12 14L22 38L12 62L72 38Z" fill="white" stroke="white" stroke-width="1" stroke-linejoin="round"/>
+<path d="M22 38H46" stroke="#1a56db" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
 </div>
- 
+<div>
+<div class="splash-title">World Tracker</div>
+<div class="splash-sub">Your personal travel journal</div>
+</div>
+</div>
+
 <!-- APP -->
 <div class="phone">
- <!-- STATUS BAR: no time, battery+signal on right -->
- <div class="status-bar">
- <span>📶</span><span>🔋</span>
- </div>
- <div class="app-header">
- <div class="header-icon">
- <svg viewBox="0 0 24 24" fill="none">
- <path d="M21 12L3 4L6.5 12L3 20L21 12Z" fill="white" stroke="white" stroke-width="0.5" stroke-linejoin="round"/>
- <path d="M6.5 12H14" stroke="#1a56db" stroke-width="1.5" stroke-linecap="round"/>
- </svg>
- </div>
- <div>
- <div class="app-title">World Tracker</div>
- <div class="app-subtitle">Your personal travel journal</div>
- </div>
- </div>
- 
- <div class="screen">
- 
- <!-- DASHBOARD -->
- <div class="tab-content active" id="tab-dashboard">
- <div class="dashboard-body">
- <div class="main-card">
- <div class="main-plane">
- <svg viewBox="0 0 24 24" fill="none">
- <path d="M21 12L3 4L6.5 12L3 20L21 12Z" fill="white" stroke="white" stroke-width="0.3" stroke-linejoin="round"/>
- <path d="M6.5 12H14" stroke="rgba(26,86,219,.6)" stroke-width="1.5" stroke-linecap="round"/>
- </svg>
- </div>
- <div class="country-count-big" id="count-display">0</div>
- <div class="count-label">countries visited out of 195</div>
- <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
- <div class="progress-label" id="progress-label">0.0% of the world explored</div>
- </div>
- 
- <div class="stats-row">
- <div class="stat-card">
- <div class="stat-icon">🗺️</div>
- <div class="stat-value" id="regions-count">0</div>
- <div class="stat-label">Regions explored</div>
- </div>
- <div class="rank-card">
- <div class="rank-badge-wrap">
- <svg class="rank-badge-svg" id="rank-badge-svg" viewBox="0 0 54 54" fill="none"></svg>
- <div class="rank-badge-num" id="rank-badge-num"></div>
- </div>
- <div class="rank-name" id="rank-label">Newcomer</div>
- <div class="rank-sub" id="rank-sub">0 countries</div>
- <div class="rank-progress-wrap">
- <div class="rank-progress-bar" id="rank-progress-bar" style="width:0%;background:#94a3b8"></div>
- </div>
- </div>
- </div>
- 
- <div class="section-label">Recently Visited</div>
- <div class="recently-card">
- <div id="recently-empty">
- <div class="empty-icon">🗺️</div>
- <div class="empty-title">No countries visited yet</div>
- <div class="empty-sub">Tap Countries to get started</div>
- </div>
- <div class="recently-list" id="recently-list" style="display:none"></div>
- </div>
- </div>
- </div>
- 
- <!-- COUNTRIES -->
- <div class="tab-content" id="tab-countries">
- <div class="countries-body">
- <input class="search-bar" type="text" placeholder="🔍 Search countries..." id="search-input" oninput="renderCountries()">
- <div id="countries-list"></div>
- </div>
- </div>
- 
- <!-- DISCOVER -->
- <div class="tab-content" id="tab-discover">
- <div class="discover-body">
- <div class="prefs-card">
- <div class="prefs-title">🏠 Where Are You Flying From?</div>
- <div class="prefs-sub">Adjusts flight time estimates for your recommendations</div>
- <div style="position:relative">
- <input class="search-bar" type="text" id="home-country-input" placeholder="🔍 Search your home country..." oninput="filterHomeCountries()" onfocus="showHomeDropdown()" style="margin-bottom:0" autocomplete="off">
- <div id="home-dropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--blue);border-radius:12px;max-height:190px;overflow-y:auto;z-index:100;box-shadow:0 8px 24px rgba(26,86,219,.15);margin-top:4px"></div>
- </div>
- <div id="home-selected" style="display:none;margin-top:10px;align-items:center;gap:8px;background:var(--blue-light);border-radius:10px;padding:8px 12px">
- <span id="home-flag" style="font-size:20px"></span>
- <span id="home-name" style="font-size:13px;font-weight:600;color:var(--blue);flex:1"></span>
- <span onclick="clearHomeCountry()" style="font-size:12px;color:var(--blue);cursor:pointer;opacity:.7">✕ change</span>
- </div>
- </div>
- <div class="prefs-card">
- <div class="prefs-title">💰 Budget</div>
- <div class="prefs-sub">How much are you looking to spend per day?</div>
- <div class="chips-wrap">
- <div class="chip active" onclick="setSingle(this,'budget','any')">💸 Any</div>
- <div class="chip" onclick="setSingle(this,'budget','cheap')">🪙 Budget (&lt;$50)</div>
- <div class="chip" onclick="setSingle(this,'budget','mid')">💳 Mid ($50–150)</div>
- <div class="chip" onclick="setSingle(this,'budget','luxury')">💎 Luxury ($150+)</div>
- </div>
- </div>
- <div class="prefs-card">
- <div class="prefs-title">🌤️ Preferred Weather</div>
- <div class="prefs-sub">What kind of climate do you prefer?</div>
- <div class="chips-wrap">
- <div class="chip active" onclick="setSingle(this,'weather','any')">🌍 Any</div>
- <div class="chip" onclick="setSingle(this,'weather','hot')">☀️ Hot &amp; Sunny</div>
- <div class="chip" onclick="setSingle(this,'weather','warm')">🌤️ Warm &amp; Mild</div>
- <div class="chip" onclick="setSingle(this,'weather','cool')">🍂 Cool &amp; Crisp</div>
- <div class="chip" onclick="setSingle(this,'weather','cold')">❄️ Cold / Snowy</div>
- </div>
- </div>
- <div class="prefs-card">
- <div class="prefs-title">✈️ Max Flight Time</div>
- <div class="prefs-sub">Filter by travel time from your home region</div>
- <div class="flight-options">
- <div class="flight-opt active" onclick="setFlight(this,'any')">
- <div class="flight-dot"><div class="flight-dot-inner"></div></div>
- <span class="flight-label">No limit</span>
- </div>
- <div class="flight-opt" onclick="setFlight(this,2)">
- <div class="flight-dot"><div class="flight-dot-inner"></div></div>
- <span class="flight-label">Under 2 hours</span>
- </div>
- <div class="flight-opt" onclick="setFlight(this,5)">
- <div class="flight-dot"><div class="flight-dot-inner"></div></div>
- <span class="flight-label">Under 5 hours</span>
- </div>
- <div class="flight-opt" onclick="setFlight(this,8)">
- <div class="flight-dot"><div class="flight-dot-inner"></div></div>
- <span class="flight-label">Under 8 hours</span>
- </div>
- <div class="flight-opt" onclick="setFlight(this,'longhaul')">
- <div class="flight-dot"><div class="flight-dot-inner"></div></div>
- <span class="flight-label">Long-haul only (8h+)</span>
- </div>
- </div>
- </div>
- <div class="prefs-card">
- <div class="prefs-title">🗺️ Continent</div>
- <div class="prefs-sub">Pick which parts of the world you want to explore</div>
- <div class="chips-wrap">
- <div class="chip active" id="continent-all" onclick="toggleContinent(this,'all')">🌍 All</div>
- <div class="chip continent-chip" onclick="toggleContinent(this,'Europe')">🏰 Europe</div>
- <div class="chip continent-chip" onclick="toggleContinent(this,'Asia')">🌏 Asia</div>
- <div class="chip continent-chip" onclick="toggleContinent(this,'Africa')">🦁 Africa</div>
- <div class="chip continent-chip" onclick="toggleContinent(this,'North America')">🗽 N. America</div>
- <div class="chip continent-chip" onclick="toggleContinent(this,'South America')">🌿 S. America</div>
- <div class="chip continent-chip" onclick="toggleContinent(this,'Central America')">🌺 C. America</div>
- <div class="chip continent-chip" onclick="toggleContinent(this,'Oceania')">🦘 Oceania</div>
- <div class="chip continent-chip" onclick="toggleContinent(this,'Middle East')">🕌 Middle East</div>
- <div class="chip continent-chip" onclick="toggleContinent(this,'Caribbean')">🏝️ Caribbean</div>
- </div>
- </div>
- <div class="prefs-card">
- <div class="prefs-title">🎯 What You're Into</div>
- <div class="prefs-sub">Pick one or more interests for tailored picks</div>
- <div class="chips-wrap">
- <div class="chip" onclick="toggleInterest(this,'beaches')">🏖️ Beaches</div>
- <div class="chip" onclick="toggleInterest(this,'nightlife')">🎉 Nightlife</div>
- <div class="chip" onclick="toggleInterest(this,'food')">🍜 Food</div>
- <div class="chip" onclick="toggleInterest(this,'culture')">🏛️ Culture</div>
- <div class="chip" onclick="toggleInterest(this,'adventure')">🧗 Adventure</div>
- <div class="chip" onclick="toggleInterest(this,'nature')">🌿 Nature</div>
- <div class="chip" onclick="toggleInterest(this,'soccer')">⚽ Soccer</div>
- <div class="chip" onclick="toggleInterest(this,'wildlife')">🦁 Wildlife</div>
- <div class="chip" onclick="toggleInterest(this,'relaxation')">🧘 Relaxation</div>
- <div class="chip" onclick="toggleInterest(this,'skiing')">⛷️ Skiing</div>
- <div class="chip" onclick="toggleInterest(this,'luxury')">💎 Luxury</div>
- <div class="chip" onclick="toggleInterest(this,'lakes')">🏞️ Lakes</div>
- </div>
- </div>
- <div class="section-label">🌍 Recommended for You</div>
- <div class="recs-grid" id="recs-grid"></div>
- </div>
- </div>
- 
- <!-- SETTINGS -->
- <div class="tab-content" id="tab-settings">
- <div class="settings-body">
- <div class="settings-card">
- <div class="settings-title">⚙️ Your Stats</div>
- <div class="settings-row">
- <span class="settings-row-label">Countries Visited</span>
- <span class="settings-row-val" id="settings-visited">0</span>
- </div>
- <div class="settings-row">
- <span class="settings-row-label">Total Countries</span>
- <span class="settings-row-val">195</span>
- </div>
- <div class="settings-row">
- <span class="settings-row-label">Explorer Rank</span>
- <span class="settings-row-val" id="settings-rank">Newcomer</span>
- </div>
- <div class="settings-row">
- <span class="settings-row-label">Regions Explored</span>
- <span class="settings-row-val" id="settings-regions">0</span>
- </div>
- </div>
- <div class="settings-card">
- <div class="settings-title">🗑️ Reset Data</div>
- <div style="font-size:13px;color:var(--gray);margin-bottom:14px">Clear all visited countries and start fresh.</div>
- <div class="reset-btn" onclick="resetAll()">Reset All Countries</div>
- </div>
- <div class="settings-card" style="text-align:center;padding:24px">
- <div style="font-size:28px;margin-bottom:6px">🌍</div>
- <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--text)">World Tracker</div>
- <div style="font-size:12px;color:var(--gray);margin-top:4px">Your personal travel journal · v5.0</div>
- </div>
- </div>
- </div>
- 
- </div>
- 
- <div class="bottom-nav">
- <button class="nav-btn active" onclick="switchTab('dashboard',this)">
- <span class="nav-icon">⊞</span>Home
- </button>
- <button class="nav-btn" onclick="switchTab('countries',this)">
- <span class="nav-icon">🌐</span>Countries
- </button>
- <button class="nav-btn" onclick="switchTab('discover',this)">
- <span class="nav-icon">🧭</span>Discover
- </button>
- <button class="nav-btn" onclick="switchTab('settings',this)">
- <span class="nav-icon">⚙️</span>Settings
- </button>
- </div>
+<!-- STATUS BAR: no time, battery+signal on right -->
+<div class="status-bar">
+<span>📶</span><span>🔋</span>
 </div>
- 
+<div class="app-header">
+<div class="header-icon">
+<svg viewBox="0 0 24 24" fill="none">
+<path d="M21 12L3 4L6.5 12L3 20L21 12Z" fill="white" stroke="white" stroke-width="0.5" stroke-linejoin="round"/>
+<path d="M6.5 12H14" stroke="#1a56db" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+</div>
+<div>
+<div class="app-title">World Tracker</div>
+<div class="app-subtitle">Your personal travel journal</div>
+</div>
+</div>
+
+<div class="screen">
+
+<!-- DASHBOARD -->
+<div class="tab-content active" id="tab-dashboard">
+<div class="dashboard-body">
+<div class="main-card">
+<div class="main-plane">
+<svg viewBox="0 0 24 24" fill="none">
+<path d="M21 12L3 4L6.5 12L3 20L21 12Z" fill="white" stroke="white" stroke-width="0.3" stroke-linejoin="round"/>
+<path d="M6.5 12H14" stroke="rgba(26,86,219,.6)" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+</div>
+<div class="country-count-big" id="count-display">0</div>
+<div class="count-label">countries visited out of 195</div>
+<div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+<div class="progress-label" id="progress-label">0.0% of the world explored</div>
+</div>
+
+<div class="stats-row">
+<div class="stat-card">
+<div class="stat-icon">🗺️</div>
+<div class="stat-value" id="regions-count">0</div>
+<div class="stat-label">Regions explored</div>
+</div>
+<div class="rank-card">
+<div class="rank-badge-wrap">
+<svg class="rank-badge-svg" id="rank-badge-svg" viewBox="0 0 54 54" fill="none"></svg>
+<div class="rank-badge-num" id="rank-badge-num"></div>
+</div>
+<div class="rank-name" id="rank-label">Newcomer</div>
+<div class="rank-sub" id="rank-sub">0 countries</div>
+<div class="rank-progress-wrap">
+<div class="rank-progress-bar" id="rank-progress-bar" style="width:0%;background:#94a3b8"></div>
+</div>
+</div>
+</div>
+
+<div class="section-label">Recently Visited</div>
+<div class="recently-card">
+<div id="recently-empty">
+<div class="empty-icon">🗺️</div>
+<div class="empty-title">No countries visited yet</div>
+<div class="empty-sub">Tap Countries to get started</div>
+</div>
+<div class="recently-list" id="recently-list" style="display:none"></div>
+</div>
+</div>
+</div>
+
+<!-- COUNTRIES -->
+<div class="tab-content" id="tab-countries">
+<div class="countries-body">
+<input class="search-bar" type="text" placeholder="🔍 Search countries..." id="search-input" oninput="renderCountries()">
+<div id="countries-list"></div>
+</div>
+</div>
+
+<!-- DISCOVER -->
+<div class="tab-content" id="tab-discover">
+<div class="discover-body">
+<div class="prefs-card">
+<div class="prefs-title">🏠 Where Are You Flying From?</div>
+<div class="prefs-sub">Adjusts flight time estimates for your recommendations</div>
+<div style="position:relative">
+<input class="search-bar" type="text" id="home-country-input" placeholder="🔍 Search your home country..." oninput="filterHomeCountries()" onfocus="showHomeDropdown()" style="margin-bottom:0" autocomplete="off">
+<div id="home-dropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--blue);border-radius:12px;max-height:190px;overflow-y:auto;z-index:100;box-shadow:0 8px 24px rgba(26,86,219,.15);margin-top:4px"></div>
+</div>
+<div id="home-selected" style="display:none;margin-top:10px;align-items:center;gap:8px;background:var(--blue-light);border-radius:10px;padding:8px 12px">
+<span id="home-flag" style="font-size:20px"></span>
+<span id="home-name" style="font-size:13px;font-weight:600;color:var(--blue);flex:1"></span>
+<span onclick="clearHomeCountry()" style="font-size:12px;color:var(--blue);cursor:pointer;opacity:.7">✕ change</span>
+</div>
+</div>
+<div class="prefs-card">
+<div class="prefs-title">💰 Budget</div>
+<div class="prefs-sub">How much are you looking to spend per day?</div>
+<div class="chips-wrap">
+<div class="chip active" onclick="setSingle(this,'budget','any')">💸 Any</div>
+<div class="chip" onclick="setSingle(this,'budget','cheap')">🪙 Budget (&lt;$50)</div>
+<div class="chip" onclick="setSingle(this,'budget','mid')">💳 Mid ($50–150)</div>
+<div class="chip" onclick="setSingle(this,'budget','luxury')">💎 Luxury ($150+)</div>
+</div>
+</div>
+<div class="prefs-card">
+<div class="prefs-title">🌤️ Preferred Weather</div>
+<div class="prefs-sub">What kind of climate do you prefer?</div>
+<div class="chips-wrap">
+<div class="chip active" onclick="setSingle(this,'weather','any')">🌍 Any</div>
+<div class="chip" onclick="setSingle(this,'weather','hot')">☀️ Hot &amp; Sunny</div>
+<div class="chip" onclick="setSingle(this,'weather','warm')">🌤️ Warm &amp; Mild</div>
+<div class="chip" onclick="setSingle(this,'weather','cool')">🍂 Cool &amp; Crisp</div>
+<div class="chip" onclick="setSingle(this,'weather','cold')">❄️ Cold / Snowy</div>
+</div>
+</div>
+<div class="prefs-card">
+<div class="prefs-title">✈️ Max Flight Time</div>
+<div class="prefs-sub">Filter by travel time from your home region</div>
+<div class="flight-options">
+<div class="flight-opt active" onclick="setFlight(this,'any')">
+<div class="flight-dot"><div class="flight-dot-inner"></div></div>
+<span class="flight-label">No limit</span>
+</div>
+<div class="flight-opt" onclick="setFlight(this,2)">
+<div class="flight-dot"><div class="flight-dot-inner"></div></div>
+<span class="flight-label">Under 2 hours</span>
+</div>
+<div class="flight-opt" onclick="setFlight(this,5)">
+<div class="flight-dot"><div class="flight-dot-inner"></div></div>
+<span class="flight-label">Under 5 hours</span>
+</div>
+<div class="flight-opt" onclick="setFlight(this,8)">
+<div class="flight-dot"><div class="flight-dot-inner"></div></div>
+<span class="flight-label">Under 8 hours</span>
+</div>
+<div class="flight-opt" onclick="setFlight(this,'longhaul')">
+<div class="flight-dot"><div class="flight-dot-inner"></div></div>
+<span class="flight-label">Long-haul only (8h+)</span>
+</div>
+</div>
+</div>
+<div class="prefs-card">
+<div class="prefs-title">🗺️ Continent</div>
+<div class="prefs-sub">Pick which parts of the world you want to explore</div>
+<div class="chips-wrap">
+<div class="chip active" id="continent-all" onclick="toggleContinent(this,'all')">🌍 All</div>
+<div class="chip continent-chip" onclick="toggleContinent(this,'Europe')">🏰 Europe</div>
+<div class="chip continent-chip" onclick="toggleContinent(this,'Asia')">🌏 Asia</div>
+<div class="chip continent-chip" onclick="toggleContinent(this,'Africa')">🦁 Africa</div>
+<div class="chip continent-chip" onclick="toggleContinent(this,'North America')">🗽 N. America</div>
+<div class="chip continent-chip" onclick="toggleContinent(this,'South America')">🌿 S. America</div>
+<div class="chip continent-chip" onclick="toggleContinent(this,'Central America')">🌺 C. America</div>
+<div class="chip continent-chip" onclick="toggleContinent(this,'Oceania')">🦘 Oceania</div>
+<div class="chip continent-chip" onclick="toggleContinent(this,'Middle East')">🕌 Middle East</div>
+<div class="chip continent-chip" onclick="toggleContinent(this,'Caribbean')">🏝️ Caribbean</div>
+</div>
+</div>
+<div class="prefs-card">
+<div class="prefs-title">🎯 What You're Into</div>
+<div class="prefs-sub">Pick one or more interests for tailored picks</div>
+<div class="chips-wrap">
+<div class="chip" onclick="toggleInterest(this,'beaches')">🏖️ Beaches</div>
+<div class="chip" onclick="toggleInterest(this,'nightlife')">🎉 Nightlife</div>
+<div class="chip" onclick="toggleInterest(this,'food')">🍜 Food</div>
+<div class="chip" onclick="toggleInterest(this,'culture')">🏛️ Culture</div>
+<div class="chip" onclick="toggleInterest(this,'adventure')">🧗 Adventure</div>
+<div class="chip" onclick="toggleInterest(this,'nature')">🌿 Nature</div>
+<div class="chip" onclick="toggleInterest(this,'soccer')">⚽ Soccer</div>
+<div class="chip" onclick="toggleInterest(this,'wildlife')">🦁 Wildlife</div>
+<div class="chip" onclick="toggleInterest(this,'relaxation')">🧘 Relaxation</div>
+<div class="chip" onclick="toggleInterest(this,'skiing')">⛷️ Skiing</div>
+<div class="chip" onclick="toggleInterest(this,'luxury')">💎 Luxury</div>
+<div class="chip" onclick="toggleInterest(this,'lakes')">🏞️ Lakes</div>
+</div>
+</div>
+<div class="section-label">🌍 Recommended for You</div>
+<div class="recs-grid" id="recs-grid"></div>
+</div>
+</div>
+
+<!-- SETTINGS -->
+<div class="tab-content" id="tab-settings">
+<div class="settings-body">
+<div class="settings-card">
+<div class="settings-title">⚙️ Your Stats</div>
+<div class="settings-row">
+<span class="settings-row-label">Countries Visited</span>
+<span class="settings-row-val" id="settings-visited">0</span>
+</div>
+<div class="settings-row">
+<span class="settings-row-label">Total Countries</span>
+<span class="settings-row-val">195</span>
+</div>
+<div class="settings-row">
+<span class="settings-row-label">Explorer Rank</span>
+<span class="settings-row-val" id="settings-rank">Newcomer</span>
+</div>
+<div class="settings-row">
+<span class="settings-row-label">Regions Explored</span>
+<span class="settings-row-val" id="settings-regions">0</span>
+</div>
+</div>
+<div class="settings-card">
+<div class="settings-title">🗑️ Reset Data</div>
+<div style="font-size:13px;color:var(--gray);margin-bottom:14px">Clear all visited countries and start fresh.</div>
+<div class="reset-btn" onclick="resetAll()">Reset All Countries</div>
+</div>
+<div class="settings-card" style="text-align:center;padding:24px">
+<div style="font-size:28px;margin-bottom:6px">🌍</div>
+<div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--text)">World Tracker</div>
+<div style="font-size:12px;color:var(--gray);margin-top:4px">Your personal travel journal · v5.0</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="bottom-nav">
+<button class="nav-btn active" onclick="switchTab('dashboard',this)">
+<span class="nav-icon">⊞</span>Home
+</button>
+<button class="nav-btn" onclick="switchTab('countries',this)">
+<span class="nav-icon">🌐</span>Countries
+</button>
+<button class="nav-btn" onclick="switchTab('discover',this)">
+<span class="nav-icon">🧭</span>Discover
+</button>
+<button class="nav-btn" onclick="switchTab('settings',this)">
+<span class="nav-icon">⚙️</span>Settings
+</button>
+</div>
+</div>
+
 <script>
 // ── ALL 195 UN-RECOGNISED COUNTRIES ──────────────────
 const allCountries = [
- // EUROPE (44)
- {name:"Albania",flag:"🇦🇱",region:"Europe",flight:3,budget:"cheap",weather:"warm",tags:["beaches","nature","culture","adventure"]},
- {name:"Andorra",flag:"🇦🇩",region:"Europe",flight:2,budget:"luxury",weather:"cold",tags:["skiing","luxury","nature"]},
- {name:"Austria",flag:"🇦🇹",region:"Europe",flight:2,budget:"mid",weather:"cold",tags:["skiing","culture","nature","lakes"]},
- {name:"Belarus",flag:"🇧🇾",region:"Europe",flight:3,budget:"cheap",weather:"cold",tags:["culture","nature"]},
- {name:"Belgium",flag:"🇧🇪",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["culture","food","nightlife"]},
- {name:"Bosnia & Herzegovina",flag:"🇧🇦",region:"Europe",flight:3,budget:"cheap",weather:"warm",tags:["culture","nature","adventure"]},
- {name:"Bulgaria",flag:"🇧🇬",region:"Europe",flight:3,budget:"cheap",weather:"warm",tags:["beaches","culture","skiing"]},
- {name:"Croatia",flag:"🇭🇷",region:"Europe",flight:3,budget:"mid",weather:"warm",tags:["beaches","nature","culture","relaxation"]},
- {name:"Cyprus",flag:"🇨🇾",region:"Europe",flight:4,budget:"mid",weather:"hot",tags:["beaches","culture","relaxation","food"]},
- {name:"Czech Republic",flag:"🇨🇿",region:"Europe",flight:2,budget:"cheap",weather:"cool",tags:["culture","food","nightlife"]},
- {name:"Denmark",flag:"🇩🇰",region:"Europe",flight:2,budget:"luxury",weather:"cool",tags:["culture","food","nightlife"]},
- {name:"Estonia",flag:"🇪🇪",region:"Europe",flight:3,budget:"mid",weather:"cold",tags:["culture","nature","nightlife"]},
- {name:"Finland",flag:"🇫🇮",region:"Europe",flight:3,budget:"luxury",weather:"cold",tags:["nature","skiing","lakes","wildlife"]},
- {name:"France",flag:"🇫🇷",region:"Europe",flight:2,budget:"luxury",weather:"warm",tags:["culture","food","luxury","skiing","soccer"]},
- {name:"Germany",flag:"🇩🇪",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["culture","food","soccer","nightlife"]},
- {name:"Greece",flag:"🇬🇷",region:"Europe",flight:3,budget:"mid",weather:"hot",tags:["beaches","culture","food","relaxation"]},
- {name:"Hungary",flag:"🇭🇺",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","food","relaxation"]},
- {name:"Iceland",flag:"🇮🇸",region:"Europe",flight:4,budget:"luxury",weather:"cold",tags:["nature","adventure","wildlife","relaxation"]},
- {name:"Ireland",flag:"🇮🇪",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["culture","nature","food","nightlife"]},
- {name:"Italy",flag:"🇮🇹",region:"Europe",flight:2,budget:"mid",weather:"warm",tags:["culture","food","lakes","soccer","luxury"]},
- {name:"Kosovo",flag:"🇽🇰",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","nature"]},
- {name:"Latvia",flag:"🇱🇻",region:"Europe",flight:3,budget:"mid",weather:"cold",tags:["culture","nature","nightlife"]},
- {name:"Liechtenstein",flag:"🇱🇮",region:"Europe",flight:2,budget:"luxury",weather:"cold",tags:["skiing","luxury","nature"]},
- {name:"Lithuania",flag:"🇱🇹",region:"Europe",flight:3,budget:"mid",weather:"cold",tags:["culture","nature","nightlife"]},
- {name:"Luxembourg",flag:"🇱🇺",region:"Europe",flight:2,budget:"luxury",weather:"cool",tags:["culture","food","luxury"]},
- {name:"Malta",flag:"🇲🇹",region:"Europe",flight:3,budget:"mid",weather:"hot",tags:["beaches","culture","relaxation","food"]},
- {name:"Moldova",flag:"🇲🇩",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","food"]},
- {name:"Monaco",flag:"🇲🇨",region:"Europe",flight:2,budget:"luxury",weather:"warm",tags:["luxury","nightlife","culture"]},
- {name:"Montenegro",flag:"🇲🇪",region:"Europe",flight:3,budget:"cheap",weather:"warm",tags:["beaches","nature","culture","adventure"]},
- {name:"Netherlands",flag:"🇳🇱",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["culture","food","nightlife","soccer"]},
- {name:"North Macedonia",flag:"🇲🇰",region:"Europe",flight:3,budget:"cheap",weather:"warm",tags:["culture","nature","lakes"]},
- {name:"Norway",flag:"🇳🇴",region:"Europe",flight:3,budget:"luxury",weather:"cold",tags:["nature","adventure","skiing","wildlife"]},
- {name:"Poland",flag:"🇵🇱",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","food","soccer"]},
- {name:"Portugal",flag:"🇵🇹",region:"Europe",flight:3,budget:"mid",weather:"warm",tags:["beaches","food","culture","relaxation","soccer"]},
- {name:"Romania",flag:"🇷🇴",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","nature","adventure"]},
- {name:"San Marino",flag:"🇸🇲",region:"Europe",flight:2,budget:"mid",weather:"warm",tags:["culture","luxury"]},
- {name:"Serbia",flag:"🇷🇸",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","food","nightlife","soccer"]},
- {name:"Slovakia",flag:"🇸🇰",region:"Europe",flight:2,budget:"cheap",weather:"cool",tags:["culture","nature","skiing"]},
- {name:"Slovenia",flag:"🇸🇮",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["nature","lakes","adventure","culture"]},
- {name:"Spain",flag:"🇪🇸",region:"Europe",flight:2,budget:"mid",weather:"warm",tags:["beaches","food","nightlife","culture","soccer"]},
- {name:"Sweden",flag:"🇸🇪",region:"Europe",flight:3,budget:"luxury",weather:"cold",tags:["nature","culture","skiing","lakes"]},
- {name:"Switzerland",flag:"🇨🇭",region:"Europe",flight:2,budget:"luxury",weather:"cold",tags:["skiing","luxury","lakes","nature","culture"]},
- {name:"Ukraine",flag:"🇺🇦",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","food","nature"]},
- {name:"United Kingdom",flag:"🇬🇧",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["culture","food","nightlife","soccer"]},
- {name:"Vatican City",flag:"🇻🇦",region:"Europe",flight:2,budget:"mid",weather:"warm",tags:["culture","luxury"]},
- 
- // ASIA (48)
- {name:"Afghanistan",flag:"🇦🇫",region:"Asia",flight:8,budget:"cheap",weather:"hot",tags:["culture","adventure","nature"]},
- {name:"Armenia",flag:"🇦🇲",region:"Asia",flight:4,budget:"cheap",weather:"cool",tags:["culture","nature","adventure"]},
- {name:"Azerbaijan",flag:"🇦🇿",region:"Asia",flight:4,budget:"mid",weather:"warm",tags:["culture","nature","adventure"]},
- {name:"Bangladesh",flag:"🇧🇩",region:"Asia",flight:9,budget:"cheap",weather:"hot",tags:["culture","food","nature"]},
- {name:"Bhutan",flag:"🇧🇹",region:"Asia",flight:10,budget:"luxury",weather:"cool",tags:["culture","nature","adventure","relaxation"]},
- {name:"Brunei",flag:"🇧🇳",region:"Asia",flight:13,budget:"mid",weather:"hot",tags:["culture","nature","food"]},
- {name:"Cambodia",flag:"🇰🇭",region:"Asia",flight:11,budget:"cheap",weather:"hot",tags:["culture","nature","food","beaches"]},
- {name:"China",flag:"🇨🇳",region:"Asia",flight:10,budget:"cheap",weather:"warm",tags:["culture","food","nature","adventure"]},
- {name:"Georgia",flag:"🇬🇪",region:"Asia",flight:4,budget:"cheap",weather:"cool",tags:["culture","food","nature","skiing"]},
- {name:"India",flag:"🇮🇳",region:"Asia",flight:8,budget:"cheap",weather:"hot",tags:["culture","food","adventure","nature"]},
- {name:"Indonesia",flag:"🇮🇩",region:"Asia",flight:13,budget:"cheap",weather:"hot",tags:["beaches","nature","culture","relaxation","wildlife"]},
- {name:"Japan",flag:"🇯🇵",region:"Asia",flight:12,budget:"mid",weather:"warm",tags:["culture","food","nature","skiing","adventure"]},
- {name:"Kazakhstan",flag:"🇰🇿",region:"Asia",flight:6,budget:"cheap",weather:"cold",tags:["nature","culture","adventure"]},
- {name:"Kyrgyzstan",flag:"🇰🇬",region:"Asia",flight:7,budget:"cheap",weather:"cold",tags:["nature","adventure","culture"]},
- {name:"Laos",flag:"🇱🇦",region:"Asia",flight:11,budget:"cheap",weather:"hot",tags:["nature","culture","adventure","relaxation"]},
- {name:"Malaysia",flag:"🇲🇾",region:"Asia",flight:12,budget:"cheap",weather:"hot",tags:["food","nature","culture","beaches"]},
- {name:"Maldives",flag:"🇲🇻",region:"Asia",flight:9,budget:"luxury",weather:"hot",tags:["beaches","luxury","relaxation"]},
- {name:"Mongolia",flag:"🇲🇳",region:"Asia",flight:9,budget:"cheap",weather:"cold",tags:["nature","adventure","wildlife","culture"]},
- {name:"Myanmar",flag:"🇲🇲",region:"Asia",flight:11,budget:"cheap",weather:"hot",tags:["culture","nature","adventure","beaches"]},
- {name:"Nepal",flag:"🇳🇵",region:"Asia",flight:9,budget:"cheap",weather:"cool",tags:["adventure","nature","skiing","culture"]},
- {name:"North Korea",flag:"🇰🇵",region:"Asia",flight:11,budget:"mid",weather:"cool",tags:["culture"]},
- {name:"Pakistan",flag:"🇵🇰",region:"Asia",flight:8,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
- {name:"Philippines",flag:"🇵🇭",region:"Asia",flight:13,budget:"cheap",weather:"hot",tags:["beaches","nature","food","adventure"]},
- {name:"Singapore",flag:"🇸🇬",region:"Asia",flight:13,budget:"luxury",weather:"hot",tags:["food","luxury","culture","nightlife"]},
- {name:"South Korea",flag:"🇰🇷",region:"Asia",flight:11,budget:"mid",weather:"warm",tags:["culture","food","nightlife"]},
- {name:"Sri Lanka",flag:"🇱🇰",region:"Asia",flight:9,budget:"cheap",weather:"hot",tags:["beaches","culture","wildlife","nature","food"]},
- {name:"Taiwan",flag:"🇹🇼",region:"Asia",flight:12,budget:"mid",weather:"warm",tags:["culture","food","nature","nightlife"]},
- {name:"Tajikistan",flag:"🇹🇯",region:"Asia",flight:7,budget:"cheap",weather:"cold",tags:["nature","adventure","culture"]},
- {name:"Thailand",flag:"🇹🇭",region:"Asia",flight:11,budget:"cheap",weather:"hot",tags:["beaches","food","culture","nightlife","relaxation"]},
- {name:"Timor-Leste",flag:"🇹🇱",region:"Asia",flight:14,budget:"cheap",weather:"hot",tags:["nature","beaches","culture"]},
- {name:"Turkmenistan",flag:"🇹🇲",region:"Asia",flight:6,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
- {name:"Uzbekistan",flag:"🇺🇿",region:"Asia",flight:7,budget:"cheap",weather:"warm",tags:["culture","nature","adventure","food"]},
- {name:"Vietnam",flag:"🇻🇳",region:"Asia",flight:11,budget:"cheap",weather:"hot",tags:["food","culture","nature","beaches"]},
- 
- // MIDDLE EAST (14)
- {name:"Bahrain",flag:"🇧🇭",region:"Middle East",flight:6,budget:"luxury",weather:"hot",tags:["luxury","culture","food","nightlife"]},
- {name:"Iran",flag:"🇮🇷",region:"Middle East",flight:6,budget:"cheap",weather:"warm",tags:["culture","nature","food","adventure"]},
- {name:"Iraq",flag:"🇮🇶",region:"Middle East",flight:5,budget:"cheap",weather:"hot",tags:["culture","adventure"]},
- {name:"Israel",flag:"🇮🇱",region:"Middle East",flight:5,budget:"mid",weather:"warm",tags:["culture","food","beaches","nightlife"]},
- {name:"Jordan",flag:"🇯🇴",region:"Middle East",flight:5,budget:"mid",weather:"hot",tags:["culture","adventure","nature"]},
- {name:"Kuwait",flag:"🇰🇼",region:"Middle East",flight:6,budget:"luxury",weather:"hot",tags:["luxury","culture","food"]},
- {name:"Lebanon",flag:"🇱🇧",region:"Middle East",flight:5,budget:"mid",weather:"warm",tags:["culture","food","nightlife","skiing"]},
- {name:"Oman",flag:"🇴🇲",region:"Middle East",flight:7,budget:"mid",weather:"hot",tags:["nature","adventure","beaches","relaxation"]},
- {name:"Palestine",flag:"🇵🇸",region:"Middle East",flight:5,budget:"cheap",weather:"warm",tags:["culture","food"]},
- {name:"Qatar",flag:"🇶🇦",region:"Middle East",flight:6,budget:"luxury",weather:"hot",tags:["luxury","culture","food","soccer"]},
- {name:"Saudi Arabia",flag:"🇸🇦",region:"Middle East",flight:6,budget:"luxury",weather:"hot",tags:["culture","luxury","adventure","nature"]},
- {name:"Syria",flag:"🇸🇾",region:"Middle East",flight:5,budget:"cheap",weather:"warm",tags:["culture","nature"]},
- {name:"Turkey",flag:"🇹🇷",region:"Middle East",flight:4,budget:"cheap",weather:"warm",tags:["culture","food","beaches","adventure"]},
- {name:"UAE",flag:"🇦🇪",region:"Middle East",flight:6,budget:"luxury",weather:"hot",tags:["luxury","food","culture","nightlife","beaches"]},
- {name:"Yemen",flag:"🇾🇪",region:"Middle East",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature"]},
- 
- // AFRICA (54)
- {name:"Algeria",flag:"🇩🇿",region:"Africa",flight:3,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
- {name:"Angola",flag:"🇦🇴",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["nature","wildlife","beaches","culture"]},
- {name:"Benin",flag:"🇧🇯",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","wildlife","nature"]},
- {name:"Botswana",flag:"🇧🇼",region:"Africa",flight:10,budget:"mid",weather:"hot",tags:["wildlife","nature","adventure"]},
- {name:"Burkina Faso",flag:"🇧🇫",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature"]},
- {name:"Burundi",flag:"🇧🇮",region:"Africa",flight:9,budget:"cheap",weather:"warm",tags:["culture","nature","lakes"]},
- {name:"Cabo Verde",flag:"🇨🇻",region:"Africa",flight:5,budget:"mid",weather:"warm",tags:["beaches","relaxation","nature","culture"]},
- {name:"Cameroon",flag:"🇨🇲",region:"Africa",flight:8,budget:"cheap",weather:"hot",tags:["wildlife","nature","culture","adventure"]},
- {name:"Central African Republic",flag:"🇨🇫",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["wildlife","nature"]},
- {name:"Chad",flag:"🇹🇩",region:"Africa",flight:8,budget:"cheap",weather:"hot",tags:["nature","adventure","culture"]},
- {name:"Comoros",flag:"🇰🇲",region:"Africa",flight:10,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
- {name:"Congo (Brazzaville)",flag:"🇨🇬",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["wildlife","nature","culture"]},
- {name:"Congo (DRC)",flag:"🇨🇩",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["wildlife","nature","adventure"]},
- {name:"Djibouti",flag:"🇩🇯",region:"Africa",flight:8,budget:"mid",weather:"hot",tags:["nature","adventure","beaches","wildlife"]},
- {name:"Egypt",flag:"🇪🇬",region:"Africa",flight:4,budget:"cheap",weather:"hot",tags:["culture","adventure","beaches"]},
- {name:"Equatorial Guinea",flag:"🇬🇶",region:"Africa",flight:9,budget:"mid",weather:"hot",tags:["nature","wildlife","culture"]},
- {name:"Eritrea",flag:"🇪🇷",region:"Africa",flight:8,budget:"cheap",weather:"hot",tags:["culture","nature","beaches"]},
- {name:"Eswatini",flag:"🇸🇿",region:"Africa",flight:11,budget:"cheap",weather:"warm",tags:["nature","wildlife","culture"]},
- {name:"Ethiopia",flag:"🇪🇹",region:"Africa",flight:8,budget:"cheap",weather:"warm",tags:["culture","nature","wildlife","adventure"]},
- {name:"Gabon",flag:"🇬🇦",region:"Africa",flight:9,budget:"mid",weather:"hot",tags:["wildlife","nature","beaches"]},
- {name:"Gambia",flag:"🇬🇲",region:"Africa",flight:5,budget:"cheap",weather:"hot",tags:["beaches","wildlife","culture"]},
- {name:"Ghana",flag:"🇬🇭",region:"Africa",flight:6,budget:"cheap",weather:"hot",tags:["culture","food","soccer","nightlife"]},
- {name:"Guinea",flag:"🇬🇳",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature"]},
- {name:"Guinea-Bissau",flag:"🇬🇼",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["nature","beaches","culture"]},
- {name:"Ivory Coast",flag:"🇨🇮",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["beaches","culture","food","soccer"]},
- {name:"Kenya",flag:"🇰🇪",region:"Africa",flight:8,budget:"mid",weather:"warm",tags:["wildlife","nature","adventure","culture"]},
- {name:"Lesotho",flag:"🇱🇸",region:"Africa",flight:11,budget:"cheap",weather:"cool",tags:["nature","adventure","culture"]},
- {name:"Liberia",flag:"🇱🇷",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
- {name:"Libya",flag:"🇱🇾",region:"Africa",flight:4,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
- {name:"Madagascar",flag:"🇲🇬",region:"Africa",flight:11,budget:"cheap",weather:"warm",tags:["wildlife","nature","beaches","adventure"]},
- {name:"Malawi",flag:"🇲🇼",region:"Africa",flight:10,budget:"cheap",weather:"warm",tags:["nature","lakes","wildlife","culture"]},
- {name:"Mali",flag:"🇲🇱",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
- {name:"Mauritania",flag:"🇲🇷",region:"Africa",flight:5,budget:"cheap",weather:"hot",tags:["nature","culture","adventure"]},
- {name:"Mauritius",flag:"🇲🇺",region:"Africa",flight:11,budget:"luxury",weather:"warm",tags:["beaches","luxury","relaxation","nature"]},
- {name:"Morocco",flag:"🇲🇦",region:"Africa",flight:3,budget:"cheap",weather:"warm",tags:["culture","food","adventure","nightlife"]},
- {name:"Mozambique",flag:"🇲🇿",region:"Africa",flight:11,budget:"cheap",weather:"warm",tags:["beaches","wildlife","nature","culture"]},
- {name:"Namibia",flag:"🇳🇦",region:"Africa",flight:10,budget:"mid",weather:"hot",tags:["wildlife","nature","adventure"]},
- {name:"Niger",flag:"🇳🇪",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
- {name:"Nigeria",flag:"🇳🇬",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","food","soccer","nightlife"]},
- {name:"Rwanda",flag:"🇷🇼",region:"Africa",flight:8,budget:"mid",weather:"warm",tags:["wildlife","nature","culture"]},
- {name:"São Tomé & Príncipe",flag:"🇸🇹",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
- {name:"Senegal",flag:"🇸🇳",region:"Africa",flight:6,budget:"cheap",weather:"hot",tags:["beaches","culture","food","soccer"]},
- {name:"Seychelles",flag:"🇸🇨",region:"Africa",flight:10,budget:"luxury",weather:"hot",tags:["beaches","luxury","relaxation","nature"]},
- {name:"Sierra Leone",flag:"🇸🇱",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["beaches","culture","nature"]},
- {name:"Somalia",flag:"🇸🇴",region:"Africa",flight:8,budget:"cheap",weather:"hot",tags:["culture","beaches"]},
- {name:"South Africa",flag:"🇿🇦",region:"Africa",flight:11,budget:"mid",weather:"warm",tags:["wildlife","adventure","nature","beaches"]},
- {name:"South Sudan",flag:"🇸🇸",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["wildlife","nature","culture"]},
- {name:"Sudan",flag:"🇸🇩",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
- {name:"Tanzania",flag:"🇹🇿",region:"Africa",flight:9,budget:"mid",weather:"warm",tags:["wildlife","nature","adventure","beaches"]},
- {name:"Togo",flag:"🇹🇬",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","beaches","nature"]},
- {name:"Tunisia",flag:"🇹🇳",region:"Africa",flight:3,budget:"cheap",weather:"warm",tags:["beaches","culture","food","adventure"]},
- {name:"Uganda",flag:"🇺🇬",region:"Africa",flight:9,budget:"cheap",weather:"warm",tags:["wildlife","nature","adventure","culture"]},
- {name:"Zambia",flag:"🇿🇲",region:"Africa",flight:10,budget:"mid",weather:"warm",tags:["wildlife","nature","adventure"]},
- {name:"Zimbabwe",flag:"🇿🇼",region:"Africa",flight:11,budget:"cheap",weather:"warm",tags:["wildlife","nature","adventure","culture"]},
- 
- // NORTH AMERICA (3)
- {name:"Canada",flag:"🇨🇦",region:"North America",flight:8,budget:"mid",weather:"cold",tags:["nature","adventure","lakes","skiing","wildlife"]},
- {name:"Mexico",flag:"🇲🇽",region:"North America",flight:11,budget:"cheap",weather:"hot",tags:["beaches","food","culture","nightlife"]},
- {name:"United States",flag:"🇺🇸",region:"North America",flight:9,budget:"mid",weather:"warm",tags:["beaches","nightlife","food","culture","adventure","nature"]},
- 
- // CENTRAL AMERICA (7)
- {name:"Belize",flag:"🇧🇿",region:"Central America",flight:12,budget:"mid",weather:"hot",tags:["beaches","nature","adventure","wildlife"]},
- {name:"Costa Rica",flag:"🇨🇷",region:"Central America",flight:11,budget:"mid",weather:"hot",tags:["nature","wildlife","adventure","beaches","relaxation"]},
- {name:"El Salvador",flag:"🇸🇻",region:"Central America",flight:12,budget:"cheap",weather:"hot",tags:["beaches","culture","nature","adventure"]},
- {name:"Guatemala",flag:"🇬🇹",region:"Central America",flight:12,budget:"cheap",weather:"warm",tags:["culture","nature","adventure","food"]},
- {name:"Honduras",flag:"🇭🇳",region:"Central America",flight:12,budget:"cheap",weather:"hot",tags:["beaches","nature","adventure","culture"]},
- {name:"Nicaragua",flag:"🇳🇮",region:"Central America",flight:12,budget:"cheap",weather:"hot",tags:["beaches","nature","adventure","culture"]},
- {name:"Panama",flag:"🇵🇦",region:"Central America",flight:12,budget:"mid",weather:"hot",tags:["nature","beaches","culture","wildlife"]},
- 
- // CARIBBEAN (13)
- {name:"Antigua & Barbuda",flag:"🇦🇬",region:"Caribbean",flight:9,budget:"luxury",weather:"hot",tags:["beaches","luxury","relaxation","culture"]},
- {name:"Bahamas",flag:"🇧🇸",region:"Caribbean",flight:9,budget:"luxury",weather:"hot",tags:["beaches","luxury","relaxation","nightlife"]},
- {name:"Barbados",flag:"🇧🇧",region:"Caribbean",flight:9,budget:"luxury",weather:"hot",tags:["beaches","food","nightlife","relaxation"]},
- {name:"Cuba",flag:"🇨🇺",region:"Caribbean",flight:10,budget:"cheap",weather:"hot",tags:["beaches","culture","food","nightlife","music"]},
- {name:"Dominica",flag:"🇩🇲",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["nature","adventure","beaches","wildlife"]},
- {name:"Dominican Republic",flag:"🇩🇴",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["beaches","nightlife","food","relaxation"]},
- {name:"Grenada",flag:"🇬🇩",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["beaches","nature","food","relaxation"]},
- {name:"Haiti",flag:"🇭🇹",region:"Caribbean",flight:9,budget:"cheap",weather:"hot",tags:["culture","beaches","nature"]},
- {name:"Jamaica",flag:"🇯🇲",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["beaches","food","nightlife","relaxation","culture"]},
- {name:"Saint Kitts & Nevis",flag:"🇰🇳",region:"Caribbean",flight:9,budget:"luxury",weather:"hot",tags:["beaches","luxury","relaxation","culture"]},
- {name:"Saint Lucia",flag:"🇱🇨",region:"Caribbean",flight:9,budget:"luxury",weather:"hot",tags:["beaches","luxury","nature","relaxation"]},
- {name:"Saint Vincent & Grenadines",flag:"🇻🇨",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["beaches","nature","relaxation","adventure"]},
- {name:"Trinidad & Tobago",flag:"🇹🇹",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["beaches","food","nightlife","culture","nature"]},
- 
- // SOUTH AMERICA (12)
- {name:"Argentina",flag:"🇦🇷",region:"South America",flight:13,budget:"cheap",weather:"warm",tags:["food","culture","soccer","nature","adventure"]},
- {name:"Bolivia",flag:"🇧🇴",region:"South America",flight:13,budget:"cheap",weather:"cool",tags:["culture","nature","adventure","lakes"]},
- {name:"Brazil",flag:"🇧🇷",region:"South America",flight:11,budget:"cheap",weather:"hot",tags:["beaches","nightlife","food","soccer","nature","adventure"]},
- {name:"Chile",flag:"🇨🇱",region:"South America",flight:14,budget:"mid",weather:"cool",tags:["nature","adventure","skiing","soccer"]},
- {name:"Colombia",flag:"🇨🇴",region:"South America",flight:10,budget:"cheap",weather:"warm",tags:["food","culture","soccer","nightlife","nature"]},
- {name:"Ecuador",flag:"🇪🇨",region:"South America",flight:12,budget:"cheap",weather:"warm",tags:["nature","wildlife","adventure","culture"]},
- {name:"Guyana",flag:"🇬🇾",region:"South America",flight:10,budget:"cheap",weather:"hot",tags:["nature","wildlife","adventure"]},
- {name:"Paraguay",flag:"🇵🇾",region:"South America",flight:13,budget:"cheap",weather:"warm",tags:["culture","nature","soccer"]},
- {name:"Peru",flag:"🇵🇪",region:"South America",flight:12,budget:"cheap",weather:"cool",tags:["culture","adventure","food","nature"]},
- {name:"Suriname",flag:"🇸🇷",region:"South America",flight:10,budget:"cheap",weather:"hot",tags:["nature","wildlife","culture"]},
- {name:"Uruguay",flag:"🇺🇾",region:"South America",flight:13,budget:"mid",weather:"warm",tags:["beaches","food","soccer","relaxation"]},
- {name:"Venezuela",flag:"🇻🇪",region:"South America",flight:10,budget:"cheap",weather:"hot",tags:["beaches","nature","adventure","culture"]},
- 
- // OCEANIA (14)
- {name:"Australia",flag:"🇦🇺",region:"Oceania",flight:22,budget:"luxury",weather:"warm",tags:["beaches","nature","adventure","wildlife","food"]},
- {name:"Fiji",flag:"🇫🇯",region:"Oceania",flight:22,budget:"mid",weather:"hot",tags:["beaches","relaxation","nature","luxury"]},
- {name:"Kiribati",flag:"🇰🇮",region:"Oceania",flight:24,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
- {name:"Marshall Islands",flag:"🇲🇭",region:"Oceania",flight:22,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
- {name:"Micronesia",flag:"🇫🇲",region:"Oceania",flight:22,budget:"cheap",weather:"hot",tags:["beaches","nature","adventure"]},
- {name:"Nauru",flag:"🇳🇷",region:"Oceania",flight:24,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
- {name:"New Zealand",flag:"🇳🇿",region:"Oceania",flight:24,budget:"luxury",weather:"warm",tags:["nature","adventure","skiing","wildlife","lakes"]},
- {name:"Palau",flag:"🇵🇼",region:"Oceania",flight:20,budget:"luxury",weather:"hot",tags:["beaches","nature","adventure","wildlife"]},
- {name:"Papua New Guinea",flag:"🇵🇬",region:"Oceania",flight:20,budget:"mid",weather:"hot",tags:["wildlife","nature","culture","adventure"]},
- {name:"Samoa",flag:"🇼🇸",region:"Oceania",flight:22,budget:"mid",weather:"hot",tags:["beaches","nature","culture","relaxation"]},
- {name:"Solomon Islands",flag:"🇸🇧",region:"Oceania",flight:22,budget:"cheap",weather:"hot",tags:["beaches","nature","adventure","wildlife"]},
- {name:"Tonga",flag:"🇹🇴",region:"Oceania",flight:22,budget:"mid",weather:"warm",tags:["beaches","nature","culture","relaxation"]},
- {name:"Tuvalu",flag:"🇹🇻",region:"Oceania",flight:24,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
- {name:"Vanuatu",flag:"🇻🇺",region:"Oceania",flight:22,budget:"mid",weather:"hot",tags:["beaches","nature","adventure","culture"]},
+// EUROPE (44)
+{name:"Albania",flag:"🇦🇱",region:"Europe",flight:3,budget:"cheap",weather:"warm",tags:["beaches","nature","culture","adventure"]},
+{name:"Andorra",flag:"🇦🇩",region:"Europe",flight:2,budget:"luxury",weather:"cold",tags:["skiing","luxury","nature"]},
+{name:"Austria",flag:"🇦🇹",region:"Europe",flight:2,budget:"mid",weather:"cold",tags:["skiing","culture","nature","lakes"]},
+{name:"Belarus",flag:"🇧🇾",region:"Europe",flight:3,budget:"cheap",weather:"cold",tags:["culture","nature"]},
+{name:"Belgium",flag:"🇧🇪",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["culture","food","nightlife"]},
+{name:"Bosnia & Herzegovina",flag:"🇧🇦",region:"Europe",flight:3,budget:"cheap",weather:"warm",tags:["culture","nature","adventure"]},
+{name:"Bulgaria",flag:"🇧🇬",region:"Europe",flight:3,budget:"cheap",weather:"warm",tags:["beaches","culture","skiing"]},
+{name:"Croatia",flag:"🇭🇷",region:"Europe",flight:3,budget:"mid",weather:"warm",tags:["beaches","nature","culture","relaxation"]},
+{name:"Cyprus",flag:"🇨🇾",region:"Europe",flight:4,budget:"mid",weather:"hot",tags:["beaches","culture","relaxation","food"]},
+{name:"Czech Republic",flag:"🇨🇿",region:"Europe",flight:2,budget:"cheap",weather:"cool",tags:["culture","food","nightlife"]},
+{name:"Denmark",flag:"🇩🇰",region:"Europe",flight:2,budget:"luxury",weather:"cool",tags:["culture","food","nightlife"]},
+{name:"Estonia",flag:"🇪🇪",region:"Europe",flight:3,budget:"mid",weather:"cold",tags:["culture","nature","nightlife"]},
+{name:"Finland",flag:"🇫🇮",region:"Europe",flight:3,budget:"luxury",weather:"cold",tags:["nature","skiing","lakes","wildlife"]},
+{name:"France",flag:"🇫🇷",region:"Europe",flight:2,budget:"luxury",weather:"warm",tags:["culture","food","luxury","skiing","soccer"]},
+{name:"Germany",flag:"🇩🇪",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["culture","food","soccer","nightlife"]},
+{name:"Greece",flag:"🇬🇷",region:"Europe",flight:3,budget:"mid",weather:"hot",tags:["beaches","culture","food","relaxation"]},
+{name:"Hungary",flag:"🇭🇺",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","food","relaxation"]},
+{name:"Iceland",flag:"🇮🇸",region:"Europe",flight:4,budget:"luxury",weather:"cold",tags:["nature","adventure","wildlife","relaxation"]},
+{name:"Ireland",flag:"🇮🇪",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["culture","nature","food","nightlife"]},
+{name:"Italy",flag:"🇮🇹",region:"Europe",flight:2,budget:"mid",weather:"warm",tags:["culture","food","lakes","soccer","luxury"]},
+{name:"Kosovo",flag:"🇽🇰",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","nature"]},
+{name:"Latvia",flag:"🇱🇻",region:"Europe",flight:3,budget:"mid",weather:"cold",tags:["culture","nature","nightlife"]},
+{name:"Liechtenstein",flag:"🇱🇮",region:"Europe",flight:2,budget:"luxury",weather:"cold",tags:["skiing","luxury","nature"]},
+{name:"Lithuania",flag:"🇱🇹",region:"Europe",flight:3,budget:"mid",weather:"cold",tags:["culture","nature","nightlife"]},
+{name:"Luxembourg",flag:"🇱🇺",region:"Europe",flight:2,budget:"luxury",weather:"cool",tags:["culture","food","luxury"]},
+{name:"Malta",flag:"🇲🇹",region:"Europe",flight:3,budget:"mid",weather:"hot",tags:["beaches","culture","relaxation","food"]},
+{name:"Moldova",flag:"🇲🇩",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","food"]},
+{name:"Monaco",flag:"🇲🇨",region:"Europe",flight:2,budget:"luxury",weather:"warm",tags:["luxury","nightlife","culture"]},
+{name:"Montenegro",flag:"🇲🇪",region:"Europe",flight:3,budget:"cheap",weather:"warm",tags:["beaches","nature","culture","adventure"]},
+{name:"Netherlands",flag:"🇳🇱",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["culture","food","nightlife","soccer"]},
+{name:"North Macedonia",flag:"🇲🇰",region:"Europe",flight:3,budget:"cheap",weather:"warm",tags:["culture","nature","lakes"]},
+{name:"Norway",flag:"🇳🇴",region:"Europe",flight:3,budget:"luxury",weather:"cold",tags:["nature","adventure","skiing","wildlife"]},
+{name:"Poland",flag:"🇵🇱",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","food","soccer"]},
+{name:"Portugal",flag:"🇵🇹",region:"Europe",flight:3,budget:"mid",weather:"warm",tags:["beaches","food","culture","relaxation","soccer"]},
+{name:"Romania",flag:"🇷🇴",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","nature","adventure"]},
+{name:"San Marino",flag:"🇸🇲",region:"Europe",flight:2,budget:"mid",weather:"warm",tags:["culture","luxury"]},
+{name:"Serbia",flag:"🇷🇸",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","food","nightlife","soccer"]},
+{name:"Slovakia",flag:"🇸🇰",region:"Europe",flight:2,budget:"cheap",weather:"cool",tags:["culture","nature","skiing"]},
+{name:"Slovenia",flag:"🇸🇮",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["nature","lakes","adventure","culture"]},
+{name:"Spain",flag:"🇪🇸",region:"Europe",flight:2,budget:"mid",weather:"warm",tags:["beaches","food","nightlife","culture","soccer"]},
+{name:"Sweden",flag:"🇸🇪",region:"Europe",flight:3,budget:"luxury",weather:"cold",tags:["nature","culture","skiing","lakes"]},
+{name:"Switzerland",flag:"🇨🇭",region:"Europe",flight:2,budget:"luxury",weather:"cold",tags:["skiing","luxury","lakes","nature","culture"]},
+{name:"Ukraine",flag:"🇺🇦",region:"Europe",flight:3,budget:"cheap",weather:"cool",tags:["culture","food","nature"]},
+{name:"United Kingdom",flag:"🇬🇧",region:"Europe",flight:2,budget:"mid",weather:"cool",tags:["culture","food","nightlife","soccer"]},
+{name:"Vatican City",flag:"🇻🇦",region:"Europe",flight:2,budget:"mid",weather:"warm",tags:["culture","luxury"]},
+
+// ASIA (48)
+{name:"Afghanistan",flag:"🇦🇫",region:"Asia",flight:8,budget:"cheap",weather:"hot",tags:["culture","adventure","nature"]},
+{name:"Armenia",flag:"🇦🇲",region:"Asia",flight:4,budget:"cheap",weather:"cool",tags:["culture","nature","adventure"]},
+{name:"Azerbaijan",flag:"🇦🇿",region:"Asia",flight:4,budget:"mid",weather:"warm",tags:["culture","nature","adventure"]},
+{name:"Bangladesh",flag:"🇧🇩",region:"Asia",flight:9,budget:"cheap",weather:"hot",tags:["culture","food","nature"]},
+{name:"Bhutan",flag:"🇧🇹",region:"Asia",flight:10,budget:"luxury",weather:"cool",tags:["culture","nature","adventure","relaxation"]},
+{name:"Brunei",flag:"🇧🇳",region:"Asia",flight:13,budget:"mid",weather:"hot",tags:["culture","nature","food"]},
+{name:"Cambodia",flag:"🇰🇭",region:"Asia",flight:11,budget:"cheap",weather:"hot",tags:["culture","nature","food","beaches"]},
+{name:"China",flag:"🇨🇳",region:"Asia",flight:10,budget:"cheap",weather:"warm",tags:["culture","food","nature","adventure"]},
+{name:"Georgia",flag:"🇬🇪",region:"Asia",flight:4,budget:"cheap",weather:"cool",tags:["culture","food","nature","skiing"]},
+{name:"India",flag:"🇮🇳",region:"Asia",flight:8,budget:"cheap",weather:"hot",tags:["culture","food","adventure","nature"]},
+{name:"Indonesia",flag:"🇮🇩",region:"Asia",flight:13,budget:"cheap",weather:"hot",tags:["beaches","nature","culture","relaxation","wildlife"]},
+{name:"Japan",flag:"🇯🇵",region:"Asia",flight:12,budget:"mid",weather:"warm",tags:["culture","food","nature","skiing","adventure"]},
+{name:"Kazakhstan",flag:"🇰🇿",region:"Asia",flight:6,budget:"cheap",weather:"cold",tags:["nature","culture","adventure"]},
+{name:"Kyrgyzstan",flag:"🇰🇬",region:"Asia",flight:7,budget:"cheap",weather:"cold",tags:["nature","adventure","culture"]},
+{name:"Laos",flag:"🇱🇦",region:"Asia",flight:11,budget:"cheap",weather:"hot",tags:["nature","culture","adventure","relaxation"]},
+{name:"Malaysia",flag:"🇲🇾",region:"Asia",flight:12,budget:"cheap",weather:"hot",tags:["food","nature","culture","beaches"]},
+{name:"Maldives",flag:"🇲🇻",region:"Asia",flight:9,budget:"luxury",weather:"hot",tags:["beaches","luxury","relaxation"]},
+{name:"Mongolia",flag:"🇲🇳",region:"Asia",flight:9,budget:"cheap",weather:"cold",tags:["nature","adventure","wildlife","culture"]},
+{name:"Myanmar",flag:"🇲🇲",region:"Asia",flight:11,budget:"cheap",weather:"hot",tags:["culture","nature","adventure","beaches"]},
+{name:"Nepal",flag:"🇳🇵",region:"Asia",flight:9,budget:"cheap",weather:"cool",tags:["adventure","nature","skiing","culture"]},
+{name:"North Korea",flag:"🇰🇵",region:"Asia",flight:11,budget:"mid",weather:"cool",tags:["culture"]},
+{name:"Pakistan",flag:"🇵🇰",region:"Asia",flight:8,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
+{name:"Philippines",flag:"🇵🇭",region:"Asia",flight:13,budget:"cheap",weather:"hot",tags:["beaches","nature","food","adventure"]},
+{name:"Singapore",flag:"🇸🇬",region:"Asia",flight:13,budget:"luxury",weather:"hot",tags:["food","luxury","culture","nightlife"]},
+{name:"South Korea",flag:"🇰🇷",region:"Asia",flight:11,budget:"mid",weather:"warm",tags:["culture","food","nightlife"]},
+{name:"Sri Lanka",flag:"🇱🇰",region:"Asia",flight:9,budget:"cheap",weather:"hot",tags:["beaches","culture","wildlife","nature","food"]},
+{name:"Taiwan",flag:"🇹🇼",region:"Asia",flight:12,budget:"mid",weather:"warm",tags:["culture","food","nature","nightlife"]},
+{name:"Tajikistan",flag:"🇹🇯",region:"Asia",flight:7,budget:"cheap",weather:"cold",tags:["nature","adventure","culture"]},
+{name:"Thailand",flag:"🇹🇭",region:"Asia",flight:11,budget:"cheap",weather:"hot",tags:["beaches","food","culture","nightlife","relaxation"]},
+{name:"Timor-Leste",flag:"🇹🇱",region:"Asia",flight:14,budget:"cheap",weather:"hot",tags:["nature","beaches","culture"]},
+{name:"Turkmenistan",flag:"🇹🇲",region:"Asia",flight:6,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
+{name:"Uzbekistan",flag:"🇺🇿",region:"Asia",flight:7,budget:"cheap",weather:"warm",tags:["culture","nature","adventure","food"]},
+{name:"Vietnam",flag:"🇻🇳",region:"Asia",flight:11,budget:"cheap",weather:"hot",tags:["food","culture","nature","beaches"]},
+
+// MIDDLE EAST (14)
+{name:"Bahrain",flag:"🇧🇭",region:"Middle East",flight:6,budget:"luxury",weather:"hot",tags:["luxury","culture","food","nightlife"]},
+{name:"Iran",flag:"🇮🇷",region:"Middle East",flight:6,budget:"cheap",weather:"warm",tags:["culture","nature","food","adventure"]},
+{name:"Iraq",flag:"🇮🇶",region:"Middle East",flight:5,budget:"cheap",weather:"hot",tags:["culture","adventure"]},
+{name:"Israel",flag:"🇮🇱",region:"Middle East",flight:5,budget:"mid",weather:"warm",tags:["culture","food","beaches","nightlife"]},
+{name:"Jordan",flag:"🇯🇴",region:"Middle East",flight:5,budget:"mid",weather:"hot",tags:["culture","adventure","nature"]},
+{name:"Kuwait",flag:"🇰🇼",region:"Middle East",flight:6,budget:"luxury",weather:"hot",tags:["luxury","culture","food"]},
+{name:"Lebanon",flag:"🇱🇧",region:"Middle East",flight:5,budget:"mid",weather:"warm",tags:["culture","food","nightlife","skiing"]},
+{name:"Oman",flag:"🇴🇲",region:"Middle East",flight:7,budget:"mid",weather:"hot",tags:["nature","adventure","beaches","relaxation"]},
+{name:"Palestine",flag:"🇵🇸",region:"Middle East",flight:5,budget:"cheap",weather:"warm",tags:["culture","food"]},
+{name:"Qatar",flag:"🇶🇦",region:"Middle East",flight:6,budget:"luxury",weather:"hot",tags:["luxury","culture","food","soccer"]},
+{name:"Saudi Arabia",flag:"🇸🇦",region:"Middle East",flight:6,budget:"luxury",weather:"hot",tags:["culture","luxury","adventure","nature"]},
+{name:"Syria",flag:"🇸🇾",region:"Middle East",flight:5,budget:"cheap",weather:"warm",tags:["culture","nature"]},
+{name:"Turkey",flag:"🇹🇷",region:"Middle East",flight:4,budget:"cheap",weather:"warm",tags:["culture","food","beaches","adventure"]},
+{name:"UAE",flag:"🇦🇪",region:"Middle East",flight:6,budget:"luxury",weather:"hot",tags:["luxury","food","culture","nightlife","beaches"]},
+{name:"Yemen",flag:"🇾🇪",region:"Middle East",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature"]},
+
+// AFRICA (54)
+{name:"Algeria",flag:"🇩🇿",region:"Africa",flight:3,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
+{name:"Angola",flag:"🇦🇴",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["nature","wildlife","beaches","culture"]},
+{name:"Benin",flag:"🇧🇯",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","wildlife","nature"]},
+{name:"Botswana",flag:"🇧🇼",region:"Africa",flight:10,budget:"mid",weather:"hot",tags:["wildlife","nature","adventure"]},
+{name:"Burkina Faso",flag:"🇧🇫",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature"]},
+{name:"Burundi",flag:"🇧🇮",region:"Africa",flight:9,budget:"cheap",weather:"warm",tags:["culture","nature","lakes"]},
+{name:"Cabo Verde",flag:"🇨🇻",region:"Africa",flight:5,budget:"mid",weather:"warm",tags:["beaches","relaxation","nature","culture"]},
+{name:"Cameroon",flag:"🇨🇲",region:"Africa",flight:8,budget:"cheap",weather:"hot",tags:["wildlife","nature","culture","adventure"]},
+{name:"Central African Republic",flag:"🇨🇫",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["wildlife","nature"]},
+{name:"Chad",flag:"🇹🇩",region:"Africa",flight:8,budget:"cheap",weather:"hot",tags:["nature","adventure","culture"]},
+{name:"Comoros",flag:"🇰🇲",region:"Africa",flight:10,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
+{name:"Congo (Brazzaville)",flag:"🇨🇬",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["wildlife","nature","culture"]},
+{name:"Congo (DRC)",flag:"🇨🇩",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["wildlife","nature","adventure"]},
+{name:"Djibouti",flag:"🇩🇯",region:"Africa",flight:8,budget:"mid",weather:"hot",tags:["nature","adventure","beaches","wildlife"]},
+{name:"Egypt",flag:"🇪🇬",region:"Africa",flight:4,budget:"cheap",weather:"hot",tags:["culture","adventure","beaches"]},
+{name:"Equatorial Guinea",flag:"🇬🇶",region:"Africa",flight:9,budget:"mid",weather:"hot",tags:["nature","wildlife","culture"]},
+{name:"Eritrea",flag:"🇪🇷",region:"Africa",flight:8,budget:"cheap",weather:"hot",tags:["culture","nature","beaches"]},
+{name:"Eswatini",flag:"🇸🇿",region:"Africa",flight:11,budget:"cheap",weather:"warm",tags:["nature","wildlife","culture"]},
+{name:"Ethiopia",flag:"🇪🇹",region:"Africa",flight:8,budget:"cheap",weather:"warm",tags:["culture","nature","wildlife","adventure"]},
+{name:"Gabon",flag:"🇬🇦",region:"Africa",flight:9,budget:"mid",weather:"hot",tags:["wildlife","nature","beaches"]},
+{name:"Gambia",flag:"🇬🇲",region:"Africa",flight:5,budget:"cheap",weather:"hot",tags:["beaches","wildlife","culture"]},
+{name:"Ghana",flag:"🇬🇭",region:"Africa",flight:6,budget:"cheap",weather:"hot",tags:["culture","food","soccer","nightlife"]},
+{name:"Guinea",flag:"🇬🇳",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature"]},
+{name:"Guinea-Bissau",flag:"🇬🇼",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["nature","beaches","culture"]},
+{name:"Ivory Coast",flag:"🇨🇮",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["beaches","culture","food","soccer"]},
+{name:"Kenya",flag:"🇰🇪",region:"Africa",flight:8,budget:"mid",weather:"warm",tags:["wildlife","nature","adventure","culture"]},
+{name:"Lesotho",flag:"🇱🇸",region:"Africa",flight:11,budget:"cheap",weather:"cool",tags:["nature","adventure","culture"]},
+{name:"Liberia",flag:"🇱🇷",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
+{name:"Libya",flag:"🇱🇾",region:"Africa",flight:4,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
+{name:"Madagascar",flag:"🇲🇬",region:"Africa",flight:11,budget:"cheap",weather:"warm",tags:["wildlife","nature","beaches","adventure"]},
+{name:"Malawi",flag:"🇲🇼",region:"Africa",flight:10,budget:"cheap",weather:"warm",tags:["nature","lakes","wildlife","culture"]},
+{name:"Mali",flag:"🇲🇱",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
+{name:"Mauritania",flag:"🇲🇷",region:"Africa",flight:5,budget:"cheap",weather:"hot",tags:["nature","culture","adventure"]},
+{name:"Mauritius",flag:"🇲🇺",region:"Africa",flight:11,budget:"luxury",weather:"warm",tags:["beaches","luxury","relaxation","nature"]},
+{name:"Morocco",flag:"🇲🇦",region:"Africa",flight:3,budget:"cheap",weather:"warm",tags:["culture","food","adventure","nightlife"]},
+{name:"Mozambique",flag:"🇲🇿",region:"Africa",flight:11,budget:"cheap",weather:"warm",tags:["beaches","wildlife","nature","culture"]},
+{name:"Namibia",flag:"🇳🇦",region:"Africa",flight:10,budget:"mid",weather:"hot",tags:["wildlife","nature","adventure"]},
+{name:"Niger",flag:"🇳🇪",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
+{name:"Nigeria",flag:"🇳🇬",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","food","soccer","nightlife"]},
+{name:"Rwanda",flag:"🇷🇼",region:"Africa",flight:8,budget:"mid",weather:"warm",tags:["wildlife","nature","culture"]},
+{name:"São Tomé & Príncipe",flag:"🇸🇹",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
+{name:"Senegal",flag:"🇸🇳",region:"Africa",flight:6,budget:"cheap",weather:"hot",tags:["beaches","culture","food","soccer"]},
+{name:"Seychelles",flag:"🇸🇨",region:"Africa",flight:10,budget:"luxury",weather:"hot",tags:["beaches","luxury","relaxation","nature"]},
+{name:"Sierra Leone",flag:"🇸🇱",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["beaches","culture","nature"]},
+{name:"Somalia",flag:"🇸🇴",region:"Africa",flight:8,budget:"cheap",weather:"hot",tags:["culture","beaches"]},
+{name:"South Africa",flag:"🇿🇦",region:"Africa",flight:11,budget:"mid",weather:"warm",tags:["wildlife","adventure","nature","beaches"]},
+{name:"South Sudan",flag:"🇸🇸",region:"Africa",flight:9,budget:"cheap",weather:"hot",tags:["wildlife","nature","culture"]},
+{name:"Sudan",flag:"🇸🇩",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","nature","adventure"]},
+{name:"Tanzania",flag:"🇹🇿",region:"Africa",flight:9,budget:"mid",weather:"warm",tags:["wildlife","nature","adventure","beaches"]},
+{name:"Togo",flag:"🇹🇬",region:"Africa",flight:7,budget:"cheap",weather:"hot",tags:["culture","beaches","nature"]},
+{name:"Tunisia",flag:"🇹🇳",region:"Africa",flight:3,budget:"cheap",weather:"warm",tags:["beaches","culture","food","adventure"]},
+{name:"Uganda",flag:"🇺🇬",region:"Africa",flight:9,budget:"cheap",weather:"warm",tags:["wildlife","nature","adventure","culture"]},
+{name:"Zambia",flag:"🇿🇲",region:"Africa",flight:10,budget:"mid",weather:"warm",tags:["wildlife","nature","adventure"]},
+{name:"Zimbabwe",flag:"🇿🇼",region:"Africa",flight:11,budget:"cheap",weather:"warm",tags:["wildlife","nature","adventure","culture"]},
+
+// NORTH AMERICA (3)
+{name:"Canada",flag:"🇨🇦",region:"North America",flight:8,budget:"mid",weather:"cold",tags:["nature","adventure","lakes","skiing","wildlife"]},
+{name:"Mexico",flag:"🇲🇽",region:"North America",flight:11,budget:"cheap",weather:"hot",tags:["beaches","food","culture","nightlife"]},
+{name:"United States",flag:"🇺🇸",region:"North America",flight:9,budget:"mid",weather:"warm",tags:["beaches","nightlife","food","culture","adventure","nature"]},
+
+// CENTRAL AMERICA (7)
+{name:"Belize",flag:"🇧🇿",region:"Central America",flight:12,budget:"mid",weather:"hot",tags:["beaches","nature","adventure","wildlife"]},
+{name:"Costa Rica",flag:"🇨🇷",region:"Central America",flight:11,budget:"mid",weather:"hot",tags:["nature","wildlife","adventure","beaches","relaxation"]},
+{name:"El Salvador",flag:"🇸🇻",region:"Central America",flight:12,budget:"cheap",weather:"hot",tags:["beaches","culture","nature","adventure"]},
+{name:"Guatemala",flag:"🇬🇹",region:"Central America",flight:12,budget:"cheap",weather:"warm",tags:["culture","nature","adventure","food"]},
+{name:"Honduras",flag:"🇭🇳",region:"Central America",flight:12,budget:"cheap",weather:"hot",tags:["beaches","nature","adventure","culture"]},
+{name:"Nicaragua",flag:"🇳🇮",region:"Central America",flight:12,budget:"cheap",weather:"hot",tags:["beaches","nature","adventure","culture"]},
+{name:"Panama",flag:"🇵🇦",region:"Central America",flight:12,budget:"mid",weather:"hot",tags:["nature","beaches","culture","wildlife"]},
+
+// CARIBBEAN (13)
+{name:"Antigua & Barbuda",flag:"🇦🇬",region:"Caribbean",flight:9,budget:"luxury",weather:"hot",tags:["beaches","luxury","relaxation","culture"]},
+{name:"Bahamas",flag:"🇧🇸",region:"Caribbean",flight:9,budget:"luxury",weather:"hot",tags:["beaches","luxury","relaxation","nightlife"]},
+{name:"Barbados",flag:"🇧🇧",region:"Caribbean",flight:9,budget:"luxury",weather:"hot",tags:["beaches","food","nightlife","relaxation"]},
+{name:"Cuba",flag:"🇨🇺",region:"Caribbean",flight:10,budget:"cheap",weather:"hot",tags:["beaches","culture","food","nightlife","music"]},
+{name:"Dominica",flag:"🇩🇲",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["nature","adventure","beaches","wildlife"]},
+{name:"Dominican Republic",flag:"🇩🇴",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["beaches","nightlife","food","relaxation"]},
+{name:"Grenada",flag:"🇬🇩",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["beaches","nature","food","relaxation"]},
+{name:"Haiti",flag:"🇭🇹",region:"Caribbean",flight:9,budget:"cheap",weather:"hot",tags:["culture","beaches","nature"]},
+{name:"Jamaica",flag:"🇯🇲",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["beaches","food","nightlife","relaxation","culture"]},
+{name:"Saint Kitts & Nevis",flag:"🇰🇳",region:"Caribbean",flight:9,budget:"luxury",weather:"hot",tags:["beaches","luxury","relaxation","culture"]},
+{name:"Saint Lucia",flag:"🇱🇨",region:"Caribbean",flight:9,budget:"luxury",weather:"hot",tags:["beaches","luxury","nature","relaxation"]},
+{name:"Saint Vincent & Grenadines",flag:"🇻🇨",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["beaches","nature","relaxation","adventure"]},
+{name:"Trinidad & Tobago",flag:"🇹🇹",region:"Caribbean",flight:9,budget:"mid",weather:"hot",tags:["beaches","food","nightlife","culture","nature"]},
+
+// SOUTH AMERICA (12)
+{name:"Argentina",flag:"🇦🇷",region:"South America",flight:13,budget:"cheap",weather:"warm",tags:["food","culture","soccer","nature","adventure"]},
+{name:"Bolivia",flag:"🇧🇴",region:"South America",flight:13,budget:"cheap",weather:"cool",tags:["culture","nature","adventure","lakes"]},
+{name:"Brazil",flag:"🇧🇷",region:"South America",flight:11,budget:"cheap",weather:"hot",tags:["beaches","nightlife","food","soccer","nature","adventure"]},
+{name:"Chile",flag:"🇨🇱",region:"South America",flight:14,budget:"mid",weather:"cool",tags:["nature","adventure","skiing","soccer"]},
+{name:"Colombia",flag:"🇨🇴",region:"South America",flight:10,budget:"cheap",weather:"warm",tags:["food","culture","soccer","nightlife","nature"]},
+{name:"Ecuador",flag:"🇪🇨",region:"South America",flight:12,budget:"cheap",weather:"warm",tags:["nature","wildlife","adventure","culture"]},
+{name:"Guyana",flag:"🇬🇾",region:"South America",flight:10,budget:"cheap",weather:"hot",tags:["nature","wildlife","adventure"]},
+{name:"Paraguay",flag:"🇵🇾",region:"South America",flight:13,budget:"cheap",weather:"warm",tags:["culture","nature","soccer"]},
+{name:"Peru",flag:"🇵🇪",region:"South America",flight:12,budget:"cheap",weather:"cool",tags:["culture","adventure","food","nature"]},
+{name:"Suriname",flag:"🇸🇷",region:"South America",flight:10,budget:"cheap",weather:"hot",tags:["nature","wildlife","culture"]},
+{name:"Uruguay",flag:"🇺🇾",region:"South America",flight:13,budget:"mid",weather:"warm",tags:["beaches","food","soccer","relaxation"]},
+{name:"Venezuela",flag:"🇻🇪",region:"South America",flight:10,budget:"cheap",weather:"hot",tags:["beaches","nature","adventure","culture"]},
+
+// OCEANIA (14)
+{name:"Australia",flag:"🇦🇺",region:"Oceania",flight:22,budget:"luxury",weather:"warm",tags:["beaches","nature","adventure","wildlife","food"]},
+{name:"Fiji",flag:"🇫🇯",region:"Oceania",flight:22,budget:"mid",weather:"hot",tags:["beaches","relaxation","nature","luxury"]},
+{name:"Kiribati",flag:"🇰🇮",region:"Oceania",flight:24,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
+{name:"Marshall Islands",flag:"🇲🇭",region:"Oceania",flight:22,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
+{name:"Micronesia",flag:"🇫🇲",region:"Oceania",flight:22,budget:"cheap",weather:"hot",tags:["beaches","nature","adventure"]},
+{name:"Nauru",flag:"🇳🇷",region:"Oceania",flight:24,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
+{name:"New Zealand",flag:"🇳🇿",region:"Oceania",flight:24,budget:"luxury",weather:"warm",tags:["nature","adventure","skiing","wildlife","lakes"]},
+{name:"Palau",flag:"🇵🇼",region:"Oceania",flight:20,budget:"luxury",weather:"hot",tags:["beaches","nature","adventure","wildlife"]},
+{name:"Papua New Guinea",flag:"🇵🇬",region:"Oceania",flight:20,budget:"mid",weather:"hot",tags:["wildlife","nature","culture","adventure"]},
+{name:"Samoa",flag:"🇼🇸",region:"Oceania",flight:22,budget:"mid",weather:"hot",tags:["beaches","nature","culture","relaxation"]},
+{name:"Solomon Islands",flag:"🇸🇧",region:"Oceania",flight:22,budget:"cheap",weather:"hot",tags:["beaches","nature","adventure","wildlife"]},
+{name:"Tonga",flag:"🇹🇴",region:"Oceania",flight:22,budget:"mid",weather:"warm",tags:["beaches","nature","culture","relaxation"]},
+{name:"Tuvalu",flag:"🇹🇻",region:"Oceania",flight:24,budget:"cheap",weather:"hot",tags:["beaches","nature","culture"]},
+{name:"Vanuatu",flag:"🇻🇺",region:"Oceania",flight:22,budget:"mid",weather:"hot",tags:["beaches","nature","adventure","culture"]},
 ];
- 
+
 const budgetLabels={cheap:"🪙 Budget",mid:"💳 Mid-range",luxury:"💎 Luxury"};
 const weatherLabels={hot:"☀️ Hot",warm:"🌤️ Warm",cool:"🍂 Cool",cold:"❄️ Cold"};
- 
+
 const regionFlightMatrix={"Europe":{"Europe":2,"Asia":9,"Middle East":5,"Africa":5,"North America":9,"Central America":11,"Caribbean":10,"South America":12,"Oceania":22},"Asia":{"Europe":10,"Asia":4,"Middle East":6,"Africa":11,"North America":13,"Central America":16,"Caribbean":17,"South America":18,"Oceania":9},"Middle East":{"Europe":5,"Asia":7,"Middle East":2,"Africa":6,"North America":13,"Central America":14,"Caribbean":14,"South America":15,"Oceania":14},"Africa":{"Europe":5,"Asia":11,"Middle East":6,"Africa":4,"North America":13,"Central America":13,"Caribbean":12,"South America":11,"Oceania":18},"North America":{"Europe":8,"Asia":14,"Middle East":13,"Africa":14,"North America":5,"Central America":4,"Caribbean":4,"South America":9,"Oceania":16},"Central America":{"Europe":11,"Asia":17,"Middle East":14,"Africa":14,"North America":4,"Central America":2,"Caribbean":3,"South America":7,"Oceania":17},"Caribbean":{"Europe":10,"Asia":17,"Middle East":14,"Africa":12,"North America":4,"Central America":3,"Caribbean":2,"South America":6,"Oceania":18},"South America":{"Europe":12,"Asia":19,"Middle East":15,"Africa":11,"North America":9,"Central America":7,"Caribbean":6,"South America":4,"Oceania":17},"Oceania":{"Europe":22,"Asia":9,"Middle East":14,"Africa":18,"North America":16,"Central America":17,"Caribbean":18,"South America":17,"Oceania":4}};
- 
+
 let homeCountry=null;
 function adjustedFlight(c){if(!homeCountry)return c.flight;if(homeCountry.name===c.name)return 0;const fr=homeCountry.region,tr=c.region;return Math.max(1,(regionFlightMatrix[fr]||{})[tr]||c.flight);}
 function filterHomeCountries(){
- const q=document.getElementById("home-country-input").value.toLowerCase();
- buildHomeDropdown(q);
+const q=document.getElementById("home-country-input").value.toLowerCase();
+buildHomeDropdown(q);
 }
 function showHomeDropdown(){
- buildHomeDropdown(document.getElementById("home-country-input").value.toLowerCase());
+buildHomeDropdown(document.getElementById("home-country-input").value.toLowerCase());
 }
 function buildHomeDropdown(q){
- const dd=document.getElementById("home-dropdown");
- const matches=allCountries.filter(c=>c.name.toLowerCase().includes(q)).slice(0,40);
- if(!matches.length){dd.style.display="none";return;}
- dd.innerHTML="";
- matches.forEach(c=>{
- const div=document.createElement("div");
- div.style.cssText="padding:10px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;border-bottom:1px solid var(--border);font-size:14px";
- div.innerHTML=`<span style="font-size:18px">${c.flag}</span><span style="flex:1;font-weight:500;color:var(--text)">${c.name}</span><span style="font-size:11px;color:var(--gray)">${c.region}</span>`;
- div.addEventListener("mousedown",function(e){e.preventDefault();selectHomeCountry(c.name,c.flag,c.region);});
- div.addEventListener("mouseover",()=>div.style.background="var(--blue-light)");
- div.addEventListener("mouseout",()=>div.style.background="");
- dd.appendChild(div);
- });
- dd.style.display="block";
+const dd=document.getElementById("home-dropdown");
+const matches=allCountries.filter(c=>c.name.toLowerCase().includes(q)).slice(0,40);
+if(!matches.length){dd.style.display="none";return;}
+dd.innerHTML="";
+matches.forEach(c=>{
+const div=document.createElement("div");
+div.style.cssText="padding:10px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;border-bottom:1px solid var(--border);font-size:14px";
+div.innerHTML=`<span style="font-size:18px">${c.flag}</span><span style="flex:1;font-weight:500;color:var(--text)">${c.name}</span><span style="font-size:11px;color:var(--gray)">${c.region}</span>`;
+div.addEventListener("mousedown",function(e){e.preventDefault();selectHomeCountry(c.name,c.flag,c.region);});
+div.addEventListener("mouseover",()=>div.style.background="var(--blue-light)");
+div.addEventListener("mouseout",()=>div.style.background="");
+dd.appendChild(div);
+});
+dd.style.display="block";
 }
 document.addEventListener("click",function(e){
- const dd=document.getElementById("home-dropdown");
- const inp=document.getElementById("home-country-input");
- if(dd&&inp&&!dd.contains(e.target)&&e.target!==inp){dd.style.display="none";}
+const dd=document.getElementById("home-dropdown");
+const inp=document.getElementById("home-country-input");
+if(dd&&inp&&!dd.contains(e.target)&&e.target!==inp){dd.style.display="none";}
 });
 function selectHomeCountry(name,flag,region){
- homeCountry={name,flag,region};
- document.getElementById("home-dropdown").style.display="none";
- document.getElementById("home-country-input").style.display="none";
- document.getElementById("home-flag").textContent=flag;
- document.getElementById("home-name").textContent=name;
- document.getElementById("home-selected").style.display="flex";
- renderRecs();
+homeCountry={name,flag,region};
+document.getElementById("home-dropdown").style.display="none";
+document.getElementById("home-country-input").style.display="none";
+document.getElementById("home-flag").textContent=flag;
+document.getElementById("home-name").textContent=name;
+document.getElementById("home-selected").style.display="flex";
+renderRecs();
 }
 function clearHomeCountry(){
- homeCountry=null;
- const inp=document.getElementById("home-country-input");
- inp.style.display="";
- inp.value="";
- document.getElementById("home-selected").style.display="none";
- renderRecs();
+homeCountry=null;
+const inp=document.getElementById("home-country-input");
+inp.style.display="";
+inp.value="";
+document.getElementById("home-selected").style.display="none";
+renderRecs();
 }
- 
+
 // ── RANK DATA ─────────────────────────────────────────
 const RANKS=[
- {min:0, name:"Newcomer", color:"#94a3b8",glow:"#cbd5e1",shape:"circle", label:"I"},
- {min:1, name:"Wanderer", color:"#78716c",glow:"#a8a29e",shape:"shield", label:"II"},
- {min:5, name:"Scout", color:"#16a34a",glow:"#4ade80",shape:"shield", label:"III"},
- {min:10, name:"Traveller", color:"#0284c7",glow:"#38bdf8",shape:"diamond",label:"IV"},
- {min:15, name:"Explorer", color:"#7c3aed",glow:"#a78bfa",shape:"diamond",label:"V"},
- {min:20, name:"Adventurer", color:"#b45309",glow:"#fbbf24",shape:"star", label:"VI"},
- {min:30, name:"Pathfinder", color:"#dc2626",glow:"#f87171",shape:"star", label:"VII"},
- {min:40, name:"Voyager", color:"#0891b2",glow:"#22d3ee",shape:"crown", label:"VIII"},
- {min:50, name:"Globetrotter", color:"#9333ea",glow:"#c084fc",shape:"crown", label:"IX"},
- {min:60, name:"World Ranger", color:"#ea580c",glow:"#fb923c",shape:"crown", label:"X"},
- {min:75, name:"Elite Explorer",color:"#0f766e",glow:"#2dd4bf",shape:"crown", label:"XI"},
- {min:100,name:"Legend", color:"#be185d",glow:"#f472b6",shape:"crown", label:"XII"},
- {min:125,name:"World Champion",color:"#d97706",glow:"#fde68a",shape:"crown", label:"XIII"},
- {min:150,name:"Master Explorer",color:"#1d4ed8",glow:"#93c5fd",shape:"crown", label:"XIV"},
- {min:175,name:"Grand Master", color:"#7c3aed",glow:"#c4b5fd",shape:"crown", label:"XV"},
- {min:195,name:"World Master", color:"#b45309",glow:"#fbbf24",shape:"crown", label:"∞"},
+{min:0, name:"Newcomer", color:"#94a3b8",glow:"#cbd5e1",shape:"circle", label:"I"},
+{min:1, name:"Wanderer", color:"#78716c",glow:"#a8a29e",shape:"shield", label:"II"},
+{min:5, name:"Scout", color:"#16a34a",glow:"#4ade80",shape:"shield", label:"III"},
+{min:10, name:"Traveller", color:"#0284c7",glow:"#38bdf8",shape:"diamond",label:"IV"},
+{min:15, name:"Explorer", color:"#7c3aed",glow:"#a78bfa",shape:"diamond",label:"V"},
+{min:20, name:"Adventurer", color:"#b45309",glow:"#fbbf24",shape:"star", label:"VI"},
+{min:30, name:"Pathfinder", color:"#dc2626",glow:"#f87171",shape:"star", label:"VII"},
+{min:40, name:"Voyager", color:"#0891b2",glow:"#22d3ee",shape:"crown", label:"VIII"},
+{min:50, name:"Globetrotter", color:"#9333ea",glow:"#c084fc",shape:"crown", label:"IX"},
+{min:60, name:"World Ranger", color:"#ea580c",glow:"#fb923c",shape:"crown", label:"X"},
+{min:75, name:"Elite Explorer",color:"#0f766e",glow:"#2dd4bf",shape:"crown", label:"XI"},
+{min:100,name:"Legend", color:"#be185d",glow:"#f472b6",shape:"crown", label:"XII"},
+{min:125,name:"World Champion",color:"#d97706",glow:"#fde68a",shape:"crown", label:"XIII"},
+{min:150,name:"Master Explorer",color:"#1d4ed8",glow:"#93c5fd",shape:"crown", label:"XIV"},
+{min:175,name:"Grand Master", color:"#7c3aed",glow:"#c4b5fd",shape:"crown", label:"XV"},
+{min:195,name:"World Master", color:"#b45309",glow:"#fbbf24",shape:"crown", label:"∞"},
 ];
- 
+
 function getRankData(n){let r={...RANKS[0],index:0};for(let i=0;i<RANKS.length;i++){if(n>=RANKS[i].min)r={...RANKS[i],index:i};}return r;}
- 
+
 function buildBadgeSVG(r){
- const c=r.color,g=r.glow;
- if(r.shape==='circle')return`<defs><radialGradient id="rg" cx="50%" cy="35%" r="60%"><stop offset="0%" stop-color="${g}"/><stop offset="100%" stop-color="${c}"/></radialGradient></defs><circle cx="27" cy="27" r="24" fill="url(#rg)" stroke="${g}" stroke-width="2"/><circle cx="27" cy="27" r="20" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1"/>`;
- if(r.shape==='shield')return`<defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${g}"/><stop offset="100%" stop-color="${c}"/></linearGradient></defs><path d="M27 4L6 13v16c0 12 9 20 21 25 12-5 21-13 21-25V13z" fill="url(#sg)" stroke="${g}" stroke-width="1.5"/><path d="M27 8L10 16v13c0 10 7 17 17 21 10-4 17-11 17-21V16z" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>`;
- if(r.shape==='diamond')return`<defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${g}"/><stop offset="100%" stop-color="${c}"/></linearGradient></defs><polygon points="27,3 51,27 27,51 3,27" fill="url(#dg)" stroke="${g}" stroke-width="1.5"/><polygon points="27,8 46,27 27,46 8,27" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>`;
- if(r.shape==='star')return`<defs><radialGradient id="stg" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="${g}"/><stop offset="100%" stop-color="${c}"/></radialGradient></defs><polygon points="27,3 33,20 51,20 37,31 42,49 27,38 12,49 17,31 3,20 21,20" fill="url(#stg)" stroke="${g}" stroke-width="1.5"/>`;
- return`<defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${g}"/><stop offset="100%" stop-color="${c}"/></linearGradient></defs><path d="M6 38h42l-6-22-9 10-6-18-6 18-9-10z" fill="url(#cg)" stroke="${g}" stroke-width="1.5" stroke-linejoin="round"/><rect x="6" y="38" width="42" height="6" rx="2" fill="${c}" stroke="${g}" stroke-width="1"/><circle cx="6" cy="16" r="3.5" fill="${g}"/><circle cx="27" cy="8" r="3.5" fill="${g}"/><circle cx="48" cy="16" r="3.5" fill="${g}"/>`;
+const c=r.color,g=r.glow;
+if(r.shape==='circle')return`<defs><radialGradient id="rg" cx="50%" cy="35%" r="60%"><stop offset="0%" stop-color="${g}"/><stop offset="100%" stop-color="${c}"/></radialGradient></defs><circle cx="27" cy="27" r="24" fill="url(#rg)" stroke="${g}" stroke-width="2"/><circle cx="27" cy="27" r="20" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1"/>`;
+if(r.shape==='shield')return`<defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${g}"/><stop offset="100%" stop-color="${c}"/></linearGradient></defs><path d="M27 4L6 13v16c0 12 9 20 21 25 12-5 21-13 21-25V13z" fill="url(#sg)" stroke="${g}" stroke-width="1.5"/><path d="M27 8L10 16v13c0 10 7 17 17 21 10-4 17-11 17-21V16z" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>`;
+if(r.shape==='diamond')return`<defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${g}"/><stop offset="100%" stop-color="${c}"/></linearGradient></defs><polygon points="27,3 51,27 27,51 3,27" fill="url(#dg)" stroke="${g}" stroke-width="1.5"/><polygon points="27,8 46,27 27,46 8,27" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>`;
+if(r.shape==='star')return`<defs><radialGradient id="stg" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="${g}"/><stop offset="100%" stop-color="${c}"/></radialGradient></defs><polygon points="27,3 33,20 51,20 37,31 42,49 27,38 12,49 17,31 3,20 21,20" fill="url(#stg)" stroke="${g}" stroke-width="1.5"/>`;
+return`<defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${g}"/><stop offset="100%" stop-color="${c}"/></linearGradient></defs><path d="M6 38h42l-6-22-9 10-6-18-6 18-9-10z" fill="url(#cg)" stroke="${g}" stroke-width="1.5" stroke-linejoin="round"/><rect x="6" y="38" width="42" height="6" rx="2" fill="${c}" stroke="${g}" stroke-width="1"/><circle cx="6" cy="16" r="3.5" fill="${g}"/><circle cx="27" cy="8" r="3.5" fill="${g}"/><circle cx="48" cy="16" r="3.5" fill="${g}"/>`;
 }
- 
+
 // ── STATE ─────────────────────────────────────────────
-let visited=new Set(),recentlyVisited=[],selectedInterests=new Set(),selectedContinents=new Set(),maxFlight='any',selectedBudget='any',selectedWeather='any';
- 
+function loadState(){
+try{
+const v=localStorage.getItem('wtv_visited');
+const r=localStorage.getItem('wtv_recently');
+return{
+visited:v?new Set(JSON.parse(v)):new Set(),
+recentlyVisited:r?JSON.parse(r):[],
+};
+}catch(e){return{visited:new Set(),recentlyVisited:[]};}
+}
+function saveState(){
+try{
+localStorage.setItem('wtv_visited',JSON.stringify([...visited]));
+localStorage.setItem('wtv_recently',JSON.stringify(recentlyVisited));
+}catch(e){}
+}
+const _s=loadState();
+let visited=_s.visited,recentlyVisited=_s.recentlyVisited,selectedInterests=new Set(),selectedContinents=new Set(),maxFlight='any',selectedBudget='any',selectedWeather='any';
+
 // ── DASHBOARD ─────────────────────────────────────────
 function updateDashboard(){
- const n=visited.size;
- document.getElementById('count-display').textContent=n;
- const pct=(n/195*100).toFixed(1);
- document.getElementById('progress-bar').style.width=pct+'%';
- document.getElementById('progress-label').textContent=pct+'% of the world explored';
- const regions=new Set([...visited].map(name=>allCountries.find(c=>c.name===name)?.region).filter(Boolean));
- document.getElementById('regions-count').textContent=regions.size;
- const rd=getRankData(n);
- document.getElementById('rank-label').textContent=rd.name;
- document.getElementById('rank-badge-svg').innerHTML=buildBadgeSVG(rd);
- document.getElementById('rank-badge-num').textContent=rd.label;
- document.getElementById('rank-sub').textContent=n+' countr'+(n===1?'y':'ies');
- const next=RANKS[Math.min(rd.index+1,RANKS.length-1)];
- const pctR=rd.index===RANKS.length-1?100:Math.min(100,((n-rd.min)/(next.min-rd.min))*100);
- document.getElementById('rank-progress-bar').style.width=pctR+'%';
- document.getElementById('rank-progress-bar').style.background=rd.color;
- document.getElementById('settings-visited').textContent=n;
- document.getElementById('settings-rank').textContent=rd.name;
- document.getElementById('settings-regions').textContent=regions.size;
- const emptyEl=document.getElementById('recently-empty'),listEl=document.getElementById('recently-list');
- if(recentlyVisited.length===0){emptyEl.style.display='';listEl.style.display='none';}
- else{
- emptyEl.style.display='none';listEl.style.display='flex';
- listEl.innerHTML=recentlyVisited.slice(-10).reverse().map(name=>{
- const c=allCountries.find(x=>x.name===name);
- return`<span class="visited-pill">${c.flag} ${c.name}</span>`;
- }).join('');
- }
+const n=visited.size;
+document.getElementById('count-display').textContent=n;
+const pct=(n/195*100).toFixed(1);
+document.getElementById('progress-bar').style.width=pct+'%';
+document.getElementById('progress-label').textContent=pct+'% of the world explored';
+const regions=new Set([...visited].map(name=>allCountries.find(c=>c.name===name)?.region).filter(Boolean));
+document.getElementById('regions-count').textContent=regions.size;
+const rd=getRankData(n);
+document.getElementById('rank-label').textContent=rd.name;
+document.getElementById('rank-badge-svg').innerHTML=buildBadgeSVG(rd);
+document.getElementById('rank-badge-num').textContent=rd.label;
+document.getElementById('rank-sub').textContent=n+' countr'+(n===1?'y':'ies');
+const next=RANKS[Math.min(rd.index+1,RANKS.length-1)];
+const pctR=rd.index===RANKS.length-1?100:Math.min(100,((n-rd.min)/(next.min-rd.min))*100);
+document.getElementById('rank-progress-bar').style.width=pctR+'%';
+document.getElementById('rank-progress-bar').style.background=rd.color;
+document.getElementById('settings-visited').textContent=n;
+document.getElementById('settings-rank').textContent=rd.name;
+document.getElementById('settings-regions').textContent=regions.size;
+const emptyEl=document.getElementById('recently-empty'),listEl=document.getElementById('recently-list');
+if(recentlyVisited.length===0){emptyEl.style.display='';listEl.style.display='none';}
+else{
+emptyEl.style.display='none';listEl.style.display='flex';
+listEl.innerHTML=recentlyVisited.slice(-10).reverse().map(name=>{
+const c=allCountries.find(x=>x.name===name);
+return`<span class="visited-pill">${c.flag} ${c.name}</span>`;
+}).join('');
 }
- 
+}
+
 // ── COUNTRIES ─────────────────────────────────────────
 function renderCountries(){
- const q=document.getElementById('search-input').value.toLowerCase();
- const filtered=allCountries.filter(c=>c.name.toLowerCase().includes(q));
- const byRegion={};
- filtered.forEach(c=>{if(!byRegion[c.region])byRegion[c.region]=[];byRegion[c.region].push(c)});
- document.getElementById('countries-list').innerHTML=Object.entries(byRegion).map(([region,list])=>`
- <div class="region-group">
- <div class="region-title">${region}</div>
- ${list.map(c=>`
- <div class="country-item ${visited.has(c.name)?'visited':''}" onclick="toggleVisit('${c.name.replace(/'/g,"\\'")}',this)">
- <span class="country-flag">${c.flag}</span>
- <span class="country-name">${c.name}</span>
- <div class="country-check">${visited.has(c.name)?'✓':''}</div>
- </div>`).join('')}
- </div>`).join('');
+const q=document.getElementById('search-input').value.toLowerCase();
+const filtered=allCountries.filter(c=>c.name.toLowerCase().includes(q));
+const byRegion={};
+filtered.forEach(c=>{if(!byRegion[c.region])byRegion[c.region]=[];byRegion[c.region].push(c)});
+document.getElementById('countries-list').innerHTML=Object.entries(byRegion).map(([region,list])=>`
+<div class="region-group">
+<div class="region-title">${region}</div>
+${list.map(c=>`
+<div class="country-item ${visited.has(c.name)?'visited':''}" onclick="toggleVisit('${c.name.replace(/'/g,"\\'")}',this)">
+<span class="country-flag">${c.flag}</span>
+<span class="country-name">${c.name}</span>
+<div class="country-check">${visited.has(c.name)?'✓':''}</div>
+</div>`).join('')}
+</div>`).join('');
 }
- 
+
 function toggleVisit(name,el){
- if(visited.has(name)){visited.delete(name);recentlyVisited=recentlyVisited.filter(n=>n!==name);el.classList.remove('visited');el.querySelector('.country-check').textContent='';}
- else{visited.add(name);recentlyVisited=recentlyVisited.filter(n=>n!==name);recentlyVisited.push(name);el.classList.add('visited');el.querySelector('.country-check').textContent='✓';}
- updateDashboard();
+if(visited.has(name)){visited.delete(name);recentlyVisited=recentlyVisited.filter(n=>n!==name);el.classList.remove('visited');el.querySelector('.country-check').textContent='';}
+else{visited.add(name);recentlyVisited=recentlyVisited.filter(n=>n!==name);recentlyVisited.push(name);el.classList.add('visited');el.querySelector('.country-check').textContent='✓';}
+saveState();updateDashboard();
 }
- 
+
 // ── DISCOVER ─────────────────────────────────────────
 function setFlight(el,val){document.querySelectorAll('.flight-opt').forEach(o=>o.classList.remove('active'));el.classList.add('active');maxFlight=val;renderRecs();}
 function setSingle(el,type,val){el.closest('.chips-wrap').querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');if(type==='budget')selectedBudget=val;if(type==='weather')selectedWeather=val;renderRecs();}
 function toggleInterest(el,tag){el.classList.toggle('active');if(selectedInterests.has(tag))selectedInterests.delete(tag);else selectedInterests.add(tag);renderRecs();}
 function toggleContinent(el,val){
- if(val==='all'){selectedContinents.clear();document.querySelectorAll('.continent-chip').forEach(c=>c.classList.remove('active'));document.getElementById('continent-all').classList.add('active');}
- else{document.getElementById('continent-all').classList.remove('active');el.classList.toggle('active');if(selectedContinents.has(val))selectedContinents.delete(val);else selectedContinents.add(val);if(selectedContinents.size===0)document.getElementById('continent-all').classList.add('active');}
- renderRecs();
+if(val==='all'){selectedContinents.clear();document.querySelectorAll('.continent-chip').forEach(c=>c.classList.remove('active'));document.getElementById('continent-all').classList.add('active');}
+else{document.getElementById('continent-all').classList.remove('active');el.classList.toggle('active');if(selectedContinents.has(val))selectedContinents.delete(val);else selectedContinents.add(val);if(selectedContinents.size===0)document.getElementById('continent-all').classList.add('active');}
+renderRecs();
 }
- 
+
 function renderRecs(){
- const interests=[...selectedInterests];
- let candidates=allCountries.filter(c=>{
- if(visited.has(c.name))return false;
- const h=adjustedFlight(c);
- if(maxFlight==='longhaul'&&h<8)return false;
- if(typeof maxFlight==='number'&&h>maxFlight)return false;
- if(selectedContinents.size>0&&!selectedContinents.has(c.region))return false;
- if(selectedBudget!=='any'&&c.budget!==selectedBudget)return false;
- if(selectedWeather!=='any'&&c.weather!==selectedWeather)return false;
- return true;
- });
- let scored=candidates.map(c=>{let score=0;if(interests.length>0){interests.forEach(i=>{if(c.tags.includes(i))score++;});if(score===0)return null;}return{...c,score};}).filter(Boolean);
- if(interests.length===0)scored=candidates.slice(0,8).map(c=>({...c,score:0}));
- else{scored.sort((a,b)=>b.score-a.score);scored=scored.slice(0,8);}
- const bg={Europe:"linear-gradient(135deg,#dbeafe,#bfdbfe)",Asia:"linear-gradient(135deg,#d1fae5,#a7f3d0)","North America":"linear-gradient(135deg,#fef9c3,#fde68a)","South America":"linear-gradient(135deg,#fce7f3,#fbcfe8)",Africa:"linear-gradient(135deg,#ffedd5,#fed7aa)",Oceania:"linear-gradient(135deg,#e0e7ff,#c7d2fe)","Middle East":"linear-gradient(135deg,#fef3c7,#fde68a)","Central America":"linear-gradient(135deg,#dcfce7,#bbf7d0)",Caribbean:"linear-gradient(135deg,#cffafe,#a5f3fc)"};
- const grid=document.getElementById('recs-grid');
- if(!scored.length){grid.innerHTML=`<div class="no-recs"><div class="no-recs-icon">✈️</div><div class="no-recs-text">No matches found.<br>Try adjusting your filters.</div></div>`;return;}
- grid.innerHTML=scored.map(c=>{
- const h=adjustedFlight(c);
- const mt=interests.filter(i=>c.tags.includes(i)).slice(0,2).map(t=>`<span class="rec-tag">${t}</span>`).join('');
- return`<div class="rec-card"><div class="rec-img" style="background:${bg[c.region]||bg.Europe}">${c.flag}</div><div class="rec-info"><div class="rec-name">${c.name}</div><div class="rec-desc">${c.region}</div><div class="rec-tags">${mt}<span class="rec-flight">✈️ ~${h}h</span><span class="rec-budget-tag">${budgetLabels[c.budget]}</span><span class="rec-weather-tag">${weatherLabels[c.weather]}</span></div></div></div>`;
- }).join('');
+const interests=[...selectedInterests];
+let candidates=allCountries.filter(c=>{
+if(visited.has(c.name))return false;
+const h=adjustedFlight(c);
+if(maxFlight==='longhaul'&&h<8)return false;
+if(typeof maxFlight==='number'&&h>maxFlight)return false;
+if(selectedContinents.size>0&&!selectedContinents.has(c.region))return false;
+if(selectedBudget!=='any'&&c.budget!==selectedBudget)return false;
+if(selectedWeather!=='any'&&c.weather!==selectedWeather)return false;
+return true;
+});
+let scored=candidates.map(c=>{let score=0;if(interests.length>0){interests.forEach(i=>{if(c.tags.includes(i))score++;});if(score===0)return null;}return{...c,score};}).filter(Boolean);
+if(interests.length===0)scored=candidates.slice(0,8).map(c=>({...c,score:0}));
+else{scored.sort((a,b)=>b.score-a.score);scored=scored.slice(0,8);}
+const bg={Europe:"linear-gradient(135deg,#dbeafe,#bfdbfe)",Asia:"linear-gradient(135deg,#d1fae5,#a7f3d0)","North America":"linear-gradient(135deg,#fef9c3,#fde68a)","South America":"linear-gradient(135deg,#fce7f3,#fbcfe8)",Africa:"linear-gradient(135deg,#ffedd5,#fed7aa)",Oceania:"linear-gradient(135deg,#e0e7ff,#c7d2fe)","Middle East":"linear-gradient(135deg,#fef3c7,#fde68a)","Central America":"linear-gradient(135deg,#dcfce7,#bbf7d0)",Caribbean:"linear-gradient(135deg,#cffafe,#a5f3fc)"};
+const grid=document.getElementById('recs-grid');
+if(!scored.length){grid.innerHTML=`<div class="no-recs"><div class="no-recs-icon">✈️</div><div class="no-recs-text">No matches found.<br>Try adjusting your filters.</div></div>`;return;}
+grid.innerHTML=scored.map(c=>{
+const h=adjustedFlight(c);
+const mt=interests.filter(i=>c.tags.includes(i)).slice(0,2).map(t=>`<span class="rec-tag">${t}</span>`).join('');
+return`<div class="rec-card"><div class="rec-img" style="background:${bg[c.region]||bg.Europe}">${c.flag}</div><div class="rec-info"><div class="rec-name">${c.name}</div><div class="rec-desc">${c.region}</div><div class="rec-tags">${mt}<span class="rec-flight">✈️ ~${h}h</span><span class="rec-budget-tag">${budgetLabels[c.budget]}</span><span class="rec-weather-tag">${weatherLabels[c.weather]}</span></div></div></div>`;
+}).join('');
 }
- 
+
 // ── NAV ───────────────────────────────────────────────
 function switchTab(tab,btn){
- document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
- document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
- document.getElementById('tab-'+tab).classList.add('active');btn.classList.add('active');
- if(tab==='countries')renderCountries();
- if(tab==='discover')renderRecs();
+document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+document.getElementById('tab-'+tab).classList.add('active');btn.classList.add('active');
+if(tab==='countries')renderCountries();
+if(tab==='discover')renderRecs();
 }
-function resetAll(){if(confirm('Reset all visited countries?')){visited.clear();recentlyVisited=[];updateDashboard();renderCountries();}}
- 
+function resetAll(){if(confirm('Reset all visited countries?')){visited.clear();recentlyVisited=[];saveState();updateDashboard();renderCountries();}}
+
 // ── SPLASH ────────────────────────────────────────────
 setTimeout(()=>document.getElementById('splash').classList.add('gone'),2900);
- 
+
 // ── INIT ──────────────────────────────────────────────
 renderCountries();renderRecs();updateDashboard();
 </script>
